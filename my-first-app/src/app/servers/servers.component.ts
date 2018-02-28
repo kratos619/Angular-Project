@@ -5,11 +5,15 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './servers.component.html',
   styleUrls: ['./servers.component.css']
 })
-export class ServersComponent  {
- servrId = 1;
- serverstatus = 'offline';
+export class ServersComponent implements OnInit{
 
- getserverstatus(){
-   return this.serverstatus;
+  allownewserver = false;
+  constructor (){
+    setTimeout(()=>{ this.allownewserver = true;}, 2000);
+  }
+
+ ngOnInit (){
+
  }
+
 }
