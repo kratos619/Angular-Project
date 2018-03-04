@@ -1,4 +1,11 @@
 <p>servers Id Is</p>
-<button class="btn btn-danger" [disabled]="!allownewserver" >click here</button>
+
+<label for="servername">Server name</label>
+<input type="text" class="form-control" (input)="server_name($event)">
+<button class="btn btn-danger" [disabled]="!allownewserver" (click)="clickServeMessage()" >click here</button>
+<p [innerText]="allownewserver"> {{theservername}}</p>
+<p>{{theServerMessage}}</p>
 <p>this is git checking</p>
-<app-server></app-server>
+<!--//print live name-->
+<p>{{theservername}}</p>
+<h1>hello world</h1>
