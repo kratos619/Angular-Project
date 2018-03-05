@@ -1,7 +1,12 @@
 <h3>server status</h3>
 
 <!--directives-->
-<p [ngStyle]="{backgroundColor: getcolor()}" >server id {{serverid}} is {{server_status}} {{get_status()}}</p>
+<p
+  [ngStyle]="{backgroundColor: getcolor()}"
+  [ngClass]="{online:server_status === 'online'}"
+>
+
+  server id {{serverid}} is {{server_status}} {{get_status()}}</p>
 <br>
 <br>
 <p>server id {{serverid}} is {{server_status}}</p>

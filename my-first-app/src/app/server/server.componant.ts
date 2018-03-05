@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector:'app-server',
-  templateUrl:'./server.component.html'
+  templateUrl:'./server.component.html',
+  styles:['.online{ color: blueviolet; }']
 })
 export class ServerComponent{
 serverid : number = 10;
