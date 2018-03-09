@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipesComponent implements OnInit {
 
+  public name: string  = '';
   constructor() { }
 
   ngOnInit() {
