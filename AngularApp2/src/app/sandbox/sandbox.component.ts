@@ -5,11 +5,8 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-sandbox',
   templateUrl: './sandbox.component.html',
   styleUrls: ['./sandbox.component.css'],
-  template : `
-  <h3>{{printnumArray()}}</h3>
-  <h3>{{printstring()}}</h3>
-  <h3>{{printanyArry()}}</h3>
-  `
+
+
 })
 export class SandboxComponent implements OnInit {
 
@@ -26,7 +23,7 @@ anyarray:any[] =  [1,'gaurav',false];
   customer : Customer;
 
    customerArra:Customer[];
-
+  
   constructor() {
      this.customer = {
       id: 1,
@@ -58,6 +55,7 @@ anyarray:any[] =  [1,'gaurav',false];
 
     ];
    }
+   
 printnumArray(){
   return this.numberArray;
 }

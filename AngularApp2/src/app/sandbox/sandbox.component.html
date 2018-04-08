@@ -1,7 +1,17 @@
-<p>
-  sandbox works!
-  name ;- {{name}}
-  {{person.firstName}}
-  {{person.sencondName}}
 
-</p>
+<h3 class="numstyle">{{printnumArray()}}</h3>
+<h3 class="stringstyle">{{printstring()}}</h3>
+
+<h3 class="anystyle">{{printanyArry()}}</h3>
+<ul>
+<li *ngFor="let items of Stringarray ; let i = index">
+  {{i + 1}} {{items}}
+</li>
+</ul>
+<ul>
+<li *ngFor="let items of customerArra ; let i = index">
+ {{items.id}}
+ {{items.name}}
+ {{items.email}}
+  </li>
+</ul>
