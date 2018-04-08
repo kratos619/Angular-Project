@@ -1,5 +1,6 @@
+import { Customer } from './customer';
 import { Component, OnInit } from '@angular/core';
-
+ 
 @Component({
   selector: 'app-sandbox',
   templateUrl: './sandbox.component.html',
@@ -21,7 +22,41 @@ anyarray:any[] =  [1,'gaurav',false];
     firstName : 'gaurav',
     sencondName : 'ingle',
   };
+
+  customer : Customer;
+
+   customerArra:Customer[];
+
   constructor() {
+     this.customer = {
+      id: 1,
+      name:'gaurav',
+      email : 'mail@gmil.com'
+    }
+    // call customerrs array
+    this.customerArra = [
+      {
+        id: 1,
+        name: 'gaurav',
+        email: 'mail@gmil.com'
+      },
+      {
+        id: 2,
+        name: 'num2',
+        email: 'mail@gmil.com'
+      },
+      {
+        id: 3,
+        name: 'dsdad',
+        email: 'numthree@gmil.com'
+      },
+      {
+        id: 4,
+        name: 'rajeev',
+        email: 'rajeev@gmil.com'
+      }
+
+    ];
    }
 printnumArray(){
   return this.numberArray;
