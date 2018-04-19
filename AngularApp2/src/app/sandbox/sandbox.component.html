@@ -1,11 +1,4 @@
-<p>Three Way to Bind Data</p>
-<p>
-  <img src="{{imageurl}}" alt="">
-</p>
-<p>
-  <img [src]="imageurl" alt="">
-</p>
-<p>
-  <img bind-src="imageurl" alt="">
+<p>birthday Date {{birthday | date | uppercase}}</p>
+<p>birthday Date {{ 'gaurav' | uppercase}}</p>
 
-</p>
+<p>birthday Date {{'SAURAV' | lowercase}}</p>

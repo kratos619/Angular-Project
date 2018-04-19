@@ -7,6 +7,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './sandbox.component.html'
 })
 export class SandboxComponent implements OnInit {
-  imageurl: string = 'http://lorempixel.com/400/200';
-  ngOnInit() {}
+  birthday = new Date(1994, 1, 7);
+  ngOnInit;
 }
