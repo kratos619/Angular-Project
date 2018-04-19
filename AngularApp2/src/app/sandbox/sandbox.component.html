@@ -1,1 +1,6 @@
-
+<p *ngIf="age > 19 ; else cant">
+  hello
+</p>
+<ng-template #cant>
+  cannot wote
+</ng-template>
