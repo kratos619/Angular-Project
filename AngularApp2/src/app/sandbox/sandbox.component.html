@@ -4,3 +4,36 @@
 <ng-template #cant>
   cannot wote
 </ng-template>
+<hr>
+<p>Switch Statement</p>
+<div [ngSwitch]="greetings">
+
+  <p *ngSwitchCase="1">
+    hi
+  </p>
+  <p *ngSwitchCase="2">
+    hello
+  </p>
+  <p *ngSwitchDefault>
+    whatsapp
+  </p>
+</div>
+
+<span [ngSwitch]="selecttutorial">
+
+  <p *ngSwitchCase="1">
+    welcome To Html Tutorial
+  </p>
+  <p *ngSwitchCase="2">
+    welcome To css Tutorial
+
+  </p>
+  <p *ngSwitchCase="3">
+    welcome To javaScript Tutorial
+
+  </p>
+
+  <p *ngSwitchDefault>
+    plese Select tutorial
+  </p>
+</span>

@@ -8,5 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SandboxComponent implements OnInit {
   age: number = 16;
+  greetings: number = 2;
+
+  selecttutorial: number = 2;
   ngOnInit() {}
 }
