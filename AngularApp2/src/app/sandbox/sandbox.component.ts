@@ -8,10 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SandboxComponent implements OnInit {
   ngOnInit;
-  firstname: string = '';
-  users: string[] = ['gaurav'];
-
-  addUser() {
-    this.users.push(this.firstname);
-  }
+  users = {
+    firstname: '',
+    lastname: '',
+    email: ''
+  };
 }
