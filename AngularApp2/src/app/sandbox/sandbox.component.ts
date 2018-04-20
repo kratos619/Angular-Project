@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SandboxComponent implements OnInit {
   ngOnInit;
-  clickEvent(e) {
-    console.log(e.type);
+  text: string = 'helloWordl';
+  val: boolean = true;
+  clickEvent() {
+    this.val = !this.val;
   }
 }
