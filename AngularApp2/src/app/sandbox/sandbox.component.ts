@@ -13,4 +13,8 @@ export class SandboxComponent implements OnInit {
   clickEvent() {
     this.val = !this.val;
   }
+
+  oneWayBinding(e) {
+    this.text = e.target.value;
+  }
 }
