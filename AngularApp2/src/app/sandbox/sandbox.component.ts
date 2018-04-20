@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './sandbox.component.html'
 })
 export class SandboxComponent implements OnInit {
-  birthday = new Date(1994, 1, 7);
   ngOnInit;
+  clickEvent(e) {
+    console.log(e.type);
+  }
 }
