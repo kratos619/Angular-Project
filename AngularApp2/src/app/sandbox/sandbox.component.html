@@ -1,9 +1,13 @@
-<button (click)="clickEvent()">Toggle </button>
-<div *ngIf="val">
-  <p>{{text}}</p>
-</div>
+<form (submit)="addUser()">
+  <label for="name">First Name</label>
+  <input type="text" [(ngModel)]="firstname" name="firstname">
+  <br>
+  <br>
+  <input type="submit" value="add User">
+</form>
+<ul>
+  <li *ngFor="let item of users">
 
-<hr>
-<br>
-<input type="text" name="" id="" (keyup)="oneWayBinding($event)" />
-<p>{{text}}</p>
+    {{item}}
+  </li>
+</ul>

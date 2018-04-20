@@ -8,13 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SandboxComponent implements OnInit {
   ngOnInit;
-  text: string = 'helloWordl';
-  val: boolean = true;
-  clickEvent() {
-    this.val = !this.val;
-  }
+  firstname: string = '';
+  users: string[] = ['gaurav'];
 
-  oneWayBinding(e) {
-    this.text = e.target.value;
+  addUser() {
+    this.users.push(this.firstname);
   }
 }
