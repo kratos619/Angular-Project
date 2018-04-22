@@ -1,3 +1,4 @@
+import { ServicesComponent } from './../services/services.component';
 import { Customer } from './customer';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,9 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SandboxComponent implements OnInit {
   ngOnInit;
-  users = {
-    firstname: '',
-    lastname: '',
-    email: ''
-  };
+
+  constructor(public services: ServicesComponent) {
+    console.log(this.services.getusers());
+  }
 }
