@@ -8,11 +8,23 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './sandbox.component.html'
 })
 export class SandboxComponent implements OnInit {
-  data: any[] = [];
+  users: any[];
+  user = {
+    name: '',
+    email: '',
+    phone: ''
+  };
 
-  constructor(public services: ServicesComponent) {
-    this.services.getData().subscribe(data => {
-      console.log(data);
+  constructor(public dataservices: ServicesComponent) {
+    this.dataservices.getusers().subscribe(users => {
+      //  console.log(users);
+      this.users = users;
+    });
+  }
+
+  onsubmit() {
+    this.dataservices.adduser(this.user).subscribe(user => {
+      this.users.unshift(user);
     });
   }
 
