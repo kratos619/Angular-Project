@@ -28,5 +28,11 @@ export class SandboxComponent implements OnInit {
     });
   }
 
+  deleteme(id) {
+    this.dataservices.deleteuser(id).subscribe(res => {
+      console.log(res);
+    });
+  }
+
   ngOnInit() {}
 }

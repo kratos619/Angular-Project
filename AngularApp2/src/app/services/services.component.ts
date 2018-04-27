@@ -17,5 +17,10 @@ export class ServicesComponent implements OnInit {
       .post('https://jsonplaceholder.typicode.com/users', user)
       .map(res => res.json());
   }
+  deleteuser(id) {
+    return this.http
+      .post('https://jsonplaceholder.typicode.com/users/', +id)
+      .map(res => res.json());
+  }
   ngOnInit() {}
 }
