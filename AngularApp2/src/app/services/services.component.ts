@@ -1,28 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import { Http } from '@angular/http';
 
 @Injectable()
 export class ServicesComponent implements OnInit {
-  data: Observable<Array<number>>;
-  constructor() {}
-  getData() {
-    this.data = new Observable(observe => {
-      setTimeout(() => {
-        observe.next(1);
-      }, 1000);
-      setTimeout(() => {
-        observe.next(2);
-      }, 2000);
-      setTimeout(() => {
-        observe.next(3);
-      }, 3000);
-      setTimeout(() => {
-        observe.next(4);
-      }, 4000);
-    });
-
-    return this.services;
+  constructor(public http: Http) {}
+  getusers() {
+    return this.http
+      .get('https://jsonplaceholder.typicode.com/users')
+      .map(res => res.json());
   }
   ngOnInit() {}
 }
