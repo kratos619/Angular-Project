@@ -8,12 +8,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './sandbox.component.html'
 })
 export class SandboxComponent implements OnInit {
-  users: any[];
-  constructor(public dataservices: ServicesComponent) {
-    this.dataservices.getusers().subscribe(users => {
-      //  console.log(users);
-      this.users = users;
+  data: any[] = [];
+
+  constructor(public services: ServicesComponent) {
+    this.services.getData().subscribe(data => {
+      console.log(data);
     });
   }
+
   ngOnInit() {}
 }
