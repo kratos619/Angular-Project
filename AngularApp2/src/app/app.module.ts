@@ -14,7 +14,8 @@ import { UserdetailsComponent } from './Components/userdetails/userdetails.compo
 const appRouter : Routes = [
   { path:'',component:HomeComponent},
   { path:'about',component:AboutComponent},
-  { path:'user/:id',component:UserdetailsComponent}
+  { path:'user/:id',component:UserdetailsComponent},
+  { path:'user',component:UserdetailsComponent}
 
 ]
 
