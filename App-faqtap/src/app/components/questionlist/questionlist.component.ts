@@ -1,5 +1,6 @@
+import { Question } from './../../modules/Questions';
+import { DataService } from './../../services/data.service';
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-questionlist',
   templateUrl: './questionlist.component.html',
@@ -7,25 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionlistComponent implements OnInit {
   questions: Object[];
-  constructor() {
-    this.questions = [
-      {
-        text: 'What is Your Name?',
-        ans: 'My Name Is Gaurav',
-        hide: true
-      },
-      {
-        text: 'What is Your Fav Color?',
-        ans: 'my Fav Color Is Blue',
-        hide: true
-      },
-      {
-        text: 'What is Your Fav Language?',
-        ans: 'My fav Language iS php and js',
-        hide: true
-      }
-    ];
-  }
+  constructor(public dataservices: DataService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.questions = this.dataservices.getQuestions();
+  }
 }
