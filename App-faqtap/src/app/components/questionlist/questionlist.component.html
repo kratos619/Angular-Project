@@ -1,14 +1,1 @@
-<div class="question" *ngFor="let question of questions">
-  <div class="card">
-    <div class="card-header">
-      {{question.text}}
-      <a href="#" class="btn btn-link" (click)="question.hide = !question.hide">Show</a>
-    </div>
-    <div class="card-body" [hidden]="question.hide">
-      <div class="card-block">
-        <p class="card-text">{{ question.ans }}</p>
-      </div>
-    </div>
-  </div>
-  <br>
-</div>
+<app-question *ngFor="let question of questions" [question]="question"></app-question>
