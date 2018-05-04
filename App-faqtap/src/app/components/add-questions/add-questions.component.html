@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-header">
+    Add Faq App
+  </div>
+  <div class="card-body">
+    <form (submit)="addQuestions()">
+      <div class="form-group">
+        <label>Question Text</label>
+        <input type="text" class="form-control" [(ngModel)]="text" name="text">
+      </div>
+      <div class="form-group">
+        <label>Question Answer</label>
+        <input type="text" class="form-control" [(ngModel)]="answer" name="answer">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
