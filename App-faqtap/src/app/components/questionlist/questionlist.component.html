@@ -1,5 +1,12 @@
-<app-add-questions (questionAdded)="addQuestion($event)"></app-add-questions>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <app-add-questions (questionAdded)="addQuestion($event)"></app-add-questions>
 
-
-<app-question *ngFor="let question of questions" [question]="question">
-</app-question>
+    </div>
+    <div class="col-md-6">
+      <app-question *ngFor="let question of questions" [question]="question">
+      </app-question>
+    </div>
+  </div>
+</div>

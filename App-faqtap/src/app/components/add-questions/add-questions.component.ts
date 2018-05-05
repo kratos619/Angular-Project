@@ -9,16 +9,12 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class AddQuestionsComponent implements OnInit {
   @Output() questionAdded = new EventEmitter<Question>();
   text: string;
-  answer: string;
+  ans: string;
 
   constructor() {}
 
   ngOnInit() {}
   addQuestions() {
-    this.questionAdded.emit({
-      text: this.text,
-      answer: this.answer,
-      hide: true
-    });
+    this.questionAdded.emit({text: this.text,ans: this.ans,hide: true});
   }
 }

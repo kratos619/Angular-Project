@@ -3,6 +3,8 @@
     <div class="card-header">
       {{question.text}}
       <a href="#" class="btn btn-link" (click)="question.hide = !question.hide">Show</a>
+      |
+      <a href="#" class="btn btn-link" (click)="removeQuestion(question)">Delete</a>
     </div>
     <div class="card-body" [hidden]="question.hide">
       <div class="card-block">
