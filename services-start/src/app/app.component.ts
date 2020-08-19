@@ -22,10 +22,12 @@ export class AppComponent {
   ];
 
   onAccountAdded(newAccount: {name: string, status: string}) {
-    this.accounts.push(newAccount);
+    console.log(newAccount);
+    this.accounts.unshift(newAccount);
   }
 
   onStatusChanged(updateInfo: {id: number, newStatus: string}) {
+    console.log(updateInfo);
     this.accounts[updateInfo.id].status = updateInfo.newStatus;
   }
 }
