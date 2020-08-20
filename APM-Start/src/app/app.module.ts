@@ -6,15 +6,19 @@ import { ProductListComponent } from './Products/product-list/product-list.compo
 
 import {FormsModule} from '@angular/forms';
 import { ConvertospacePipe } from './shared/convertospace.pipe';
+import { StarRatingComponent } from './shared/star-rating/star-rating.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
-    ConvertospacePipe
+    ConvertospacePipe,
+    StarRatingComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   bootstrap: [AppComponent]
 })
