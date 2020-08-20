@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {IProductList} from './Product.interface'
+import { IProductList } from './Product.interface'
 @Component({
   selector: 'pm-product-list',
   templateUrl: './product-list.component.html',
@@ -8,7 +8,8 @@ import {IProductList} from './Product.interface'
 export class ProductListComponent implements OnInit {
   pageTitle: string = 'Product List';
   showImgs = false;
-  filterBy : string;
+  filteredProducts: IProductList[];
+
   products: IProductList[] = [
     {
       productId: 1,
@@ -31,11 +32,33 @@ export class ProductListComponent implements OnInit {
       imageUrl: 'assets/images/garden_cart.png',
     },
   ];
-  constructor() {}
+
+  private _filterBy: string;
+
+  public get filterBy(): string {
+    return this._filterBy;
+  }
+  public set filterBy(value: string) {
+    this._filterBy = value;
+    this.filteredProducts = this.filterBy ? this.perFormFilter(this.filterBy) : this.products;
+  }
+
+  perFormFilter(filterBy: string): IProductList[] {
+    filterBy = filterBy.toLowerCase();
+    console.log('filterBy', filterBy);
+
+    return this.products.filter((product: IProductList) => {
+      return product.productName.toLowerCase().indexOf(filterBy) !== -1; 
+      });
+  }
+  constructor() { 
+    this.filteredProducts = this.products;
+  }
 
   toggleImageView() {
     this.showImgs = !this.showImgs;
   }
-  ngOnInit(): void {}
+
+  ngOnInit(): void { }
 }
 
