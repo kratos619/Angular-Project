@@ -8,17 +8,31 @@ import {FormsModule} from '@angular/forms';
 import { ConvertospacePipe } from './shared/convertospace.pipe';
 import { StarRatingComponent } from './shared/star-rating/star-rating.component';
 import { HttpClientModule } from '@angular/common/http';
+import { WelcomeComponent} from './home/welcome.component';
+
+import {RouterModule} from '@angular/router';
+import { ProductsdetailsComponent } from './Products/productsdetails/productsdetails.component';
+const routes = [
+  {path : 'products',component : ProductListComponent},
+  {path: 'products/:id',component:ProductsdetailsComponent},
+  {path: 'welcome',component:WelcomeComponent},
+  {path: '', redirectTo: 'welcome',pathMatch:'full'},
+  {path: '**', redirectTo: 'welcome',pathMatch:'full'},
+];
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
     ConvertospacePipe,
-    StarRatingComponent
+    StarRatingComponent,
+    ProductsdetailsComponent,
+    WelcomeComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   bootstrap: [AppComponent]
 })
