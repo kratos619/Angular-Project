@@ -16,4 +16,10 @@ export class HttpserviceService {
       tap((data) => {return data}),
     )
   }
+
+  getDataById(url):Observable<object>{
+    return  this.http.get(url).pipe(
+      tap((data) => {return data;})
+    )
+  }
 }

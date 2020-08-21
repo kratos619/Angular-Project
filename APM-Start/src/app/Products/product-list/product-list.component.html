@@ -24,9 +24,7 @@
           </div>
 
           <div class="table-responsive">
-            <table class="table"
-                   *ngIf="products && products.length"
-            >
+            <table class="table" *ngIf="products && products.length">
               <thead>
               <tr>
                 <th>
@@ -62,7 +60,10 @@
                     alt="">
                 </td>
                 <td>
-                  {{item.productName}}
+                  <a [routerLink]="['/products',item.productId]" >
+                    {{item.productName}}
+                  </a>
+
                 </td>
                 <td>
                   {{item.productCode | lowercase | convertospace:"-" }}

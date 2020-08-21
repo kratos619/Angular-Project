@@ -1,1 +1,25 @@
-<p>productsdetails works!</p>
+<div *ngIf="selectedData" class="row">
+  <div class="col-12 mx-auto">
+    <div class="card">
+      <div class="card-body">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, nisi.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div *ngIf="!selectedData" >
+  <div class="ph-row" ></div>
+  <div class="ph-row" ></div>
+  <div  class="ph-item">
+    <div class="ph-col-12">
+      <div class="ph-row">
+        <div class="ph-col-6 big"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+

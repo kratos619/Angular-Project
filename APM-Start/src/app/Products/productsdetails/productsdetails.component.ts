@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {HttpserviceService} from '../../services/httpservice.service';
+import {logger} from 'codelyzer/util/logger';
 
 @Component({
   selector: 'pm-productsdetails',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsdetailsComponent implements OnInit {
 
-  constructor() { }
+  selectedId ;
+  selectedData ;
+  constructor(private route : ActivatedRoute,private productService : HttpserviceService) {
+    this.selectedId = this.route.snapshot.paramMap.get('id');
+    console.log(this.route.snapshot);
+  }
 
   ngOnInit(): void {
+    this.productService.getDataById(`https://jsonplaceholder.typicode.com/todos/${this.selectedId}`)
+      .subscribe({
+        next : value => {
+          console.log(value);
+          this.selectedData = value;
+        },
+        error : err => {
+          console.log(err)
+        }
+      })
   }
 
 }
