@@ -35,9 +35,9 @@ export class ProductListComponent implements OnInit {
   }
   testData ;
   testError ;
-  constructor(protected productService: ProductService,private webdata : HttpserviceService) { 
+  constructor(protected productService: ProductService,private webdata : HttpserviceService) {
 
-      
+
   }
 
   toggleImageView() {
@@ -51,14 +51,14 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.products = this.productService.getProducts();
-    this.filteredProducts = this.products;
+    // this.products = this.productService.getProducts();
+    // this.filteredProducts = this.products;
 
-    this.webdata.getData('https://jsonplaceholder.typicode.com/posts')
+    this.webdata.getData('api/products/products.json')
       .subscribe({
-        next: (data) => {
-          this.testData = data;
-          console.log('this is test data', this.testData);
+        next: (data:IProductList[]) => {
+          this.products = data;
+          this.filteredProducts = this.products;
         },
         error: (err) => { console.log('error aala', err) }
       });
