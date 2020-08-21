@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Play-App-one"
+    }
+  },
+  "defaultProject": "Play-App-one",
+  "cli": {
+    "analytics": false
+  }
 }
