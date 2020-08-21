@@ -4,20 +4,21 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './Products/product-list/product-list.component';
 
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { ConvertospacePipe } from './shared/convertospace.pipe';
 import { StarRatingComponent } from './shared/star-rating/star-rating.component';
 import { HttpClientModule } from '@angular/common/http';
-import { WelcomeComponent} from './home/welcome.component';
+import { WelcomeComponent } from './home/welcome.component';
 
-import {RouterModule} from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { ProductsdetailsComponent } from './Products/productsdetails/productsdetails.component';
+import {ProductDetailsGuardsGuard} from './guards/product-details-guards.guard';
 const routes = [
-  {path : 'products',component : ProductListComponent},
-  {path: 'products/:id',component:ProductsdetailsComponent},
-  {path: 'welcome',component:WelcomeComponent},
-  {path: '', redirectTo: 'welcome',pathMatch:'full'},
-  {path: '**', redirectTo: 'welcome',pathMatch:'full'},
+  { path: 'products', component: ProductListComponent },
+  { path: 'products/:id', canActivate: [ProductDetailsGuardsGuard], component: ProductsdetailsComponent },
+  { path: 'welcome', component: WelcomeComponent },
+  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+  { path: '**', redirectTo: 'welcome', pathMatch: 'full' },
 ];
 @NgModule({
   declarations: [
