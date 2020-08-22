@@ -3,21 +3,21 @@
         <div class="col-md-6 mx-auto">
             <div class="card">
                 <div class="card-body">
-                    <form  #formOne="ngForm" >
+                    <form  #formOne="ngForm" (ngSubmit)="onSubmit(formOne)" >
                         <div class="form-group">
                             <label for="name">Name</label>
 
-                            <input  type="text" class="form-control" [(ngModel)]="userSettings.name"
+                            <input  type="text" class="form-control"
+                                    [(ngModel)]="userSettings.name"
                                     name="name"
                                     placeholder="Enter Name"
-                                    #propertyTest="ngModel" >
+                                    required
+                                    #nameField="ngModel"
+                                    [class.field-error]="formOne.submitted && nameField.invalid"
+                            >
+                          <small class="text-danger" [hidden]="!formOne.submitted || nameField.valid " >Enter name</small>
                         </div>
-                      <p>{{propertyTest.dirty}}</p>
-                      <p>{{propertyTest.pristine}}</p>
-                      <p>{{propertyTest.touched}}</p>
-                      <p>{{propertyTest.untouched}}</p>
-                      <p>{{propertyTest.valid}}</p>
-                      <p>{{propertyTest.invalid}}</p>
+
                         <div class="form-group">
                             <div class="form-check">
                                 <input ngModel name="emailOffer" type="checkbox" class="form-check-input" id="exampleCheck1">
