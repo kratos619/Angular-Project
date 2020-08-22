@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form  #formOne="ngForm" >
+                        <div class="form-group">
+                            <label for="name">Name</label>
+
+                            <input  type="text" class="form-control" [(ngModel)]="userSettings.name"
+                                    name="name"
+                                    placeholder="Enter Name"
+                                    #propertyTest="ngModel" >
+                        </div>
+                      <p>{{propertyTest.dirty}}</p>
+                      <p>{{propertyTest.pristine}}</p>
+                      <p>{{propertyTest.touched}}</p>
+                      <p>{{propertyTest.untouched}}</p>
+                      <p>{{propertyTest.valid}}</p>
+                      <p>{{propertyTest.invalid}}</p>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input ngModel name="emailOffer" type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Email special offers</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-check">
+                            <input ngModel name="interfacestyle" class="form-check-input" type="radio"
+                                value="light">
+                                <label class="form-check-label" for="exampleRadios1">
+                                    light
+                                </label>
+                            </div>
+                            <div class="form-check">
+                            <input ngModel name="interfacestyle" class="form-check-input" type="radio"
+                                value="medium">
+                                <label class="form-check-label" for="exampleRadios1">
+                                    medium
+                                </label>
+                            </div>
+                            <div class="form-check">
+                            <input ngModel name="interfacestyle" class="form-check-input" type="radio"
+                                value="dark">
+                                <label class="form-check-label" for="exampleRadios1">
+                                    dark
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">subscription type</label>
+                            <select ngModel name="subscription_type" class="form-control" >
+                                <option value="monthly" >Monthly</option>
+                                <option value="anual" >Anual</option>
+                                <option value="lifetime" >Lifetime</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                             <label for="notes">Notes</label>
+                            <textarea name="notes" ngModel cols="30" rows="5" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{{formOne.form.value| json }}
