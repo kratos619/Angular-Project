@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-observable-rxjs-serices"
+    }
+  },
+  "defaultProject": "angular-observable-rxjs-serices",
+  "cli": {
+    "analytics": false
+  }
 }

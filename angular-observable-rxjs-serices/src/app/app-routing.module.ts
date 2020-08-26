@@ -5,7 +5,6 @@ import { PromisesComponent } from './promises/promises.component';
 
 const routes: Routes = [
   { path: 'promises', component: PromisesComponent },
-  // { path: '**', redirectTo: 'observables' },
 ];
 
 @NgModule({

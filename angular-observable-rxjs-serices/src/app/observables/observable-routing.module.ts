@@ -13,6 +13,7 @@ const routes: Routes = [
       { path: 'fromevent', component: FromEventComponent },
     ],
   },
+  // { path: '**', redirectTo: 'observables' },
 ];
 
 @NgModule({
