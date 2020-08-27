@@ -6,10 +6,11 @@ import { ObservablesListComponent } from './observables-list/observables-list.co
 import { FromEventComponent } from './observables-list/from-event/from-event.component';
 import { IntervalComponent } from './observables-list/interval/interval.component';
 import { FromOfOperatorComponent } from './observables-list/from-of-operator/from-of-operator.component';
+import { ToarrayComponent } from './observables-list/toarray/toarray.component';
 
 
 @NgModule({
-  declarations: [ObservablesListComponent, FromEventComponent, IntervalComponent, FromOfOperatorComponent],
+  declarations: [ObservablesListComponent, FromEventComponent, IntervalComponent, FromOfOperatorComponent, ToarrayComponent],
   imports: [
     CommonModule,
     ObservableRoutingModule
