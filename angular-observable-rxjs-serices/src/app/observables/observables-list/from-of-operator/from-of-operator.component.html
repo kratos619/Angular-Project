@@ -5,13 +5,23 @@
 
     <div class="col-md-6">
       <p class="border rounded p-2 bg-light" >
-        <strong>Data: </strong> of ('asd','adda','asd')
+        <strong>Data: </strong> of ('data one','data two','data three')
       </p>
       <hr>
-      <ul #ofOpOne >
-        li
+      <ul #fromOfOpOne >
+
       </ul>
     </div>
-      <div class="col-md-6"></div>
+      <div class="col-md-6">
+        <p class="border rounded p-2 bg-light" >
+          <strong>Data: </strong> of (&#123;a:'data one', b: 'data two', c: 'data three'})
+        </p>
+        <ul>
+          <li> {{objectData['name']}}  </li>
+          <li> {{objectData['lname']}}  </li>
+          <li> {{objectData['age']}}  </li>
+        </ul>
+        <hr>
+      </div>
   </div>
 </div>
