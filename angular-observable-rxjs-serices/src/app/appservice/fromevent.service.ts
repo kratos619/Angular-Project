@@ -12,4 +12,12 @@ export class FromeventService {
     li.innerText = `list item ${counter}`;
     el.nativeElement.appendChild(li);
   }
+
+
+  printData(res, el) {
+    let li = document.createElement('li');
+    li.innerText = `${res}`;
+    el.nativeElement.appendChild(li);
+  }
+
 }
