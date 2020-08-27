@@ -4,6 +4,7 @@ import { ObservablesListComponent } from './observables-list/observables-list.co
 import { FromEventComponent } from './observables-list/from-event/from-event.component';
 import { ObservablesComponent } from './observables.component';
 import {IntervalComponent} from './observables-list/interval/interval.component';
+import {FromOfOperatorComponent} from './observables-list/from-of-operator/from-of-operator.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
       { path: '', component: ObservablesListComponent },
       { path: 'fromevent', component: FromEventComponent },
       { path: 'intervels', component: IntervalComponent },
+      { path: 'of-from-operator', component: FromOfOperatorComponent },
     ],
   },
   // { path: '**', redirectTo: 'observables' },
