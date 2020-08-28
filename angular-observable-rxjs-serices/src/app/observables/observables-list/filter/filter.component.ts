@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {from} from 'rxjs';
-import {filter, toArray} from 'rxjs/operators';
+import {from, interval} from 'rxjs';
+import {filter, map, toArray} from 'rxjs/operators';
 
 @Component({
   selector: 'app-filter',
@@ -8,9 +8,6 @@ import {filter, toArray} from 'rxjs/operators';
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent implements OnInit,AfterViewInit {
-
- // private name : string;
-  // private details : Array<string> = ['a','b','c'] ;
 
   @ViewChild('filterByName') filterByName : ElementRef;
 
@@ -85,6 +82,16 @@ export class FilterComponent implements OnInit,AfterViewInit {
   `;
 
   ngAfterViewInit(): void {
-
+    let data = interval(1000);
+    data
+      .pipe(
+        map((e)=>{
+          console.log(e);
+          return e
+        })
+      )
+      .subscribe((e) => {
+        console.log(e);
+      })
   }
 }
