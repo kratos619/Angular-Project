@@ -8,6 +8,7 @@ import {FromOfOperatorComponent} from './observables-list/from-of-operator/from-
 import { ToarrayComponent } from './observables-list/toarray/toarray.component';
 import {MapComponent} from './observables-list/map/map.component';
 import {PluckComponent} from './observables-list/pluck/pluck.component';
+import {FilterComponent} from './observables-list/filter/filter.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: 'to-arry', component: ToarrayComponent },
       { path: 'map-observables', component: MapComponent },
       { path: 'pluck-observables', component: PluckComponent },
+      { path: 'filter-observables', component: FilterComponent },
     ],
   },
   // { path: '**', redirectTo: 'observables' },

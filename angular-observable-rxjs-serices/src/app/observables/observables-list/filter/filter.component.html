@@ -1,1 +1,47 @@
-<p>filter works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <p>filter by property gender (Male)</p>
+          <ul>
+              <li *ngFor="let item of filteredByGender" >
+                {{item.name}}
+              </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <p>filter by property gender (FeMale)</p>
+          <ul>
+            <li *ngFor="let item of filteredByGenderF" >
+              {{item.name}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+  <div class="row" >
+    <div class="col-8 mx-auto">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title">code</h5>
+
+          </div>
+          <div class="card-body bg-dark">
+            <div class="justify-content-center" >
+              <pre>
+                <code class="text-light font-weight-bold" [innerHTML]="codeOne" ></code>
+              </pre>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
