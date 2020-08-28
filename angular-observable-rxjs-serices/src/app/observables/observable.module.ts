@@ -9,10 +9,11 @@ import { FromOfOperatorComponent } from './observables-list/from-of-operator/fro
 import { ToarrayComponent } from './observables-list/toarray/toarray.component';
 import { MapComponent } from './observables-list/map/map.component';
 import { PluckComponent } from './observables-list/pluck/pluck.component';
+import { FilterComponent } from './observables-list/filter/filter.component';
 
 
 @NgModule({
-  declarations: [ObservablesListComponent, FromEventComponent, IntervalComponent, FromOfOperatorComponent, ToarrayComponent, MapComponent, PluckComponent],
+  declarations: [ObservablesListComponent, FromEventComponent, IntervalComponent, FromOfOperatorComponent, ToarrayComponent, MapComponent, PluckComponent, FilterComponent],
   imports: [
     CommonModule,
     ObservableRoutingModule
