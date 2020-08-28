@@ -9,6 +9,7 @@ import { ToarrayComponent } from './observables-list/toarray/toarray.component';
 import {MapComponent} from './observables-list/map/map.component';
 import {PluckComponent} from './observables-list/pluck/pluck.component';
 import {FilterComponent} from './observables-list/filter/filter.component';
+import {TapComponent} from './observables-list/tap/tap.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
       { path: 'map-observables', component: MapComponent },
       { path: 'pluck-observables', component: PluckComponent },
       { path: 'filter-observables', component: FilterComponent },
+      { path: 'tap-observables', component: TapComponent },
     ],
   },
   // { path: '**', redirectTo: 'observables' },

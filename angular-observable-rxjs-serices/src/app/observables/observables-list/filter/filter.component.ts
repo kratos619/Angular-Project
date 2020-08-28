@@ -31,7 +31,7 @@ export class FilterComponent implements OnInit,AfterViewInit {
         toArray()
       )
       .subscribe((res) => {
-        console.log(res);
+        // console.log(res);
         this.filteredByGender = res;
       });
     dataFilterOne
@@ -39,10 +39,17 @@ export class FilterComponent implements OnInit,AfterViewInit {
         filter(data => data.gender === 'f'),
         toArray()
       )
-      .subscribe((res) => {
-        console.log(res);
-        this.filteredByGenderF = res;
-      })
+      .subscribe(
+        (res) => {
+            this.filteredByGenderF = res;
+          },
+        (err) => {
+            console.log(err);
+          },
+        () => {
+          console.log("this is done");
+        }
+      )
   }
 
   filteredByGender ;
@@ -86,12 +93,12 @@ export class FilterComponent implements OnInit,AfterViewInit {
     data
       .pipe(
         map((e)=>{
-          console.log(e);
+          // console.log(e);
           return e
         })
       )
       .subscribe((e) => {
-        console.log(e);
+        // console.log(e);
       })
   }
 }
