@@ -6,6 +6,7 @@ import { ObservablesComponent } from './observables.component';
 import {IntervalComponent} from './observables-list/interval/interval.component';
 import {FromOfOperatorComponent} from './observables-list/from-of-operator/from-of-operator.component';
 import { ToarrayComponent } from './observables-list/toarray/toarray.component';
+import {MapComponent} from './observables-list/map/map.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
       { path: 'intervels', component: IntervalComponent },
       { path: 'of-from-operator', component: FromOfOperatorComponent },
       { path: 'to-arry', component: ToarrayComponent },
+      { path: 'map-observables', component: MapComponent },
     ],
   },
   // { path: '**', redirectTo: 'observables' },
