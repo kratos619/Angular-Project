@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>Retry</h2>
+  <hr>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <button (click)="fetchData()" class="btn btn-info" >Fetch Data</button>
+        </div>
+        <div class="card-body">
+          <div *ngIf="loadingStat" class="text-center">
+            <div class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+          <p *ngIf="!userData && loadingStat" class="text-center text-danger" >{{message}}</p>
+
+          <div *ngIf="userData"  class="justify-content-center" >
+              <p>name: {{userData.name}}</p>
+              <p>phone: {{userData.phone}}</p>
+              <p>username: {{userData.username}}</p>
+              <p>website: {{userData.website}}</p>
+              <p>email: {{userData.email}}</p>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
