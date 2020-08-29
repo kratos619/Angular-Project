@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {retry} from 'rxjs/operators';
+import {delay, retry, retryWhen, scan} from 'rxjs/operators';
 
 @Component({
   selector: 'app-retry',
@@ -14,30 +14,41 @@ export class RetryComponent implements OnInit,AfterViewInit {
   userData;
   retryingStat;
   loadingStat = false;
-  message = "fetching data..."
-  ngOnInit(): void {
-    // this.fetchData();
-  }
+  message = "fetching data attempt..";
+  attempt : number;
+  ngOnInit(): void {}
   ngAfterViewInit(): void {
 
   }
 
   fetchData(){
     this.loadingStat = true;
-    this.http.get('https://jsonplaceholder.typicode.com/users/1')
+    this.http.get('https://sonplaceholder.typicode.com/users/1')
       .pipe(
-        retry(4),
-        
+        // retry(4),
+        retryWhen((err) => {
+          return err.pipe(
+            delay(3000),
+            scan((acc) => {
+              // console.log("acc",acc);
+              if (acc >= 5 ){
+                    throw err;
+              }else {
+                  acc = acc + 1;
+                  this.attempt = acc;
+                return acc
+              }
+            },1)
+          );
+        })
       )
       .subscribe(
         value => {
           this.userData = value;
           this.loadingStat = false
-          console.log(value);
         },
         error => {
           this.loadingStat = true;
-          console.log(error);
         }
       )
   }

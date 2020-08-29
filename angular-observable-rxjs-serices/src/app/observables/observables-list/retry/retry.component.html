@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Retry</h2>
+  <h4>Retry / retry / retryWhen / delay / scan</h4>
   <hr>
   <div class="row">
     <div class="col-md-6">
@@ -13,7 +13,7 @@
               <span class="sr-only">Loading...</span>
             </div>
           </div>
-          <p *ngIf="!userData && loadingStat" class="text-center text-danger" >{{message}}</p>
+          <p *ngIf="!userData && loadingStat" class="text-center text-danger" >{{message}} {{attempt}} </p>
 
           <div *ngIf="userData"  class="justify-content-center" >
               <p>name: {{userData.name}}</p>
