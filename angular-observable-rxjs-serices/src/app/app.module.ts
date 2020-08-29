@@ -7,6 +7,7 @@ import { ObservablesComponent } from './observables/observables.component';
 import { HeaderComponent } from './header/header.component';
 import { PromisesComponent } from './promises/promises.component';
 import { ObservableModule } from './observables/observable.module';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ObservableModule } from './observables/observable.module';
     BrowserModule,
     AppRoutingModule,
     ObservableModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

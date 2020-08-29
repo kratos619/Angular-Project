@@ -10,6 +10,7 @@ import {MapComponent} from './observables-list/map/map.component';
 import {PluckComponent} from './observables-list/pluck/pluck.component';
 import {FilterComponent} from './observables-list/filter/filter.component';
 import {TapComponent} from './observables-list/tap/tap.component';
+import {RetryComponent} from './observables-list/retry/retry.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,7 @@ const routes: Routes = [
       { path: 'pluck-observables', component: PluckComponent },
       { path: 'filter-observables', component: FilterComponent },
       { path: 'tap-observables', component: TapComponent },
+      { path: 'to-retry', component: RetryComponent },
     ],
   },
   // { path: '**', redirectTo: 'observables' },

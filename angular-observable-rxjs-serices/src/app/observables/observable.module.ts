@@ -11,7 +11,7 @@ import { MapComponent } from './observables-list/map/map.component';
 import { PluckComponent } from './observables-list/pluck/pluck.component';
 import { FilterComponent } from './observables-list/filter/filter.component';
 import { TapComponent } from './observables-list/tap/tap.component';
-import { RetryComponent } from './observables-lis/retry/retry.component';
+import { RetryComponent } from './observables-list/retry/retry.component';
 
 
 @NgModule({
