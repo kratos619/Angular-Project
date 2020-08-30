@@ -18,10 +18,11 @@ import { SubjectComponent } from './observables-list/subject/subject.component';
 import { SubjectDemoComOneComponent } from './observables-list/subject/subject-demo-com-one/subject-demo-com-one.component';
 import { SubjectDemoComTwoComponent } from './observables-list/subject/subject-demo-com-two/subject-demo-com-two.component';
 import { SubjectDemoComThreeComponent } from './observables-list/subject/subject-demo-com-three/subject-demo-com-three.component';
+import { SubjectDemoComFourComponent } from './observables-list/subject/subject-demo-com-four/subject-demo-com-four.component';
 
 
 @NgModule({
-  declarations: [ObservablesListComponent, FromEventComponent, IntervalComponent, FromOfOperatorComponent, ToarrayComponent, MapComponent, PluckComponent, FilterComponent, TapComponent, RetryComponent, DebounceUtilComponent, SubjectComponent, SubjectDemoComOneComponent, SubjectDemoComTwoComponent, SubjectDemoComThreeComponent],
+  declarations: [ObservablesListComponent, FromEventComponent, IntervalComponent, FromOfOperatorComponent, ToarrayComponent, MapComponent, PluckComponent, FilterComponent, TapComponent, RetryComponent, DebounceUtilComponent, SubjectComponent, SubjectDemoComOneComponent, SubjectDemoComTwoComponent, SubjectDemoComThreeComponent, SubjectDemoComFourComponent],
     imports: [
         CommonModule,
         ObservableRoutingModule,
