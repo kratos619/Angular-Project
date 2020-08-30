@@ -23,7 +23,7 @@ export class RetryComponent implements OnInit,AfterViewInit {
 
   fetchData(){
     this.loadingStat = true;
-    this.http.get('https://sonplaceholder.typicode.com/users/1')
+    this.http.get('https://jsonplaceholder.typicode.com/users/1')
       .pipe(
         // retry(4),
         retryWhen((err) => {
