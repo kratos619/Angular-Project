@@ -14,10 +14,11 @@ import { TapComponent } from './observables-list/tap/tap.component';
 import { RetryComponent } from './observables-list/retry/retry.component';
 import { DebounceUtilComponent } from './observables-list/debounce-util/debounce-util.component';
 import {FormsModule} from '@angular/forms';
+import { SubjectComponent } from './observables-list/subject/subject.component';
 
 
 @NgModule({
-  declarations: [ObservablesListComponent, FromEventComponent, IntervalComponent, FromOfOperatorComponent, ToarrayComponent, MapComponent, PluckComponent, FilterComponent, TapComponent, RetryComponent, DebounceUtilComponent],
+  declarations: [ObservablesListComponent, FromEventComponent, IntervalComponent, FromOfOperatorComponent, ToarrayComponent, MapComponent, PluckComponent, FilterComponent, TapComponent, RetryComponent, DebounceUtilComponent, SubjectComponent],
     imports: [
         CommonModule,
         ObservableRoutingModule,

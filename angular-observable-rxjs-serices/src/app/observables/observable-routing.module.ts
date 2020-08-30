@@ -12,6 +12,7 @@ import {FilterComponent} from './observables-list/filter/filter.component';
 import {TapComponent} from './observables-list/tap/tap.component';
 import {RetryComponent} from './observables-list/retry/retry.component';
 import {DebounceUtilComponent} from './observables-list/debounce-util/debounce-util.component';
+import {SubjectComponent} from './observables-list/subject/subject.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,7 @@ const routes: Routes = [
       { path: 'tap-observables', component: TapComponent },
       { path: 'to-retry', component: RetryComponent },
       { path: 'debouncetime-util', component: DebounceUtilComponent },
+      { path: 'subject-and-behavior-subject', component: SubjectComponent },
     ],
   },
   // { path: '**', redirectTo: 'observables' },
