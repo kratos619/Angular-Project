@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FromeventService} from '../appservice/fromevent.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  exclusive:boolean = false;
 
-  ngOnInit(): void {
+  constructor(private _designUtility : FromeventService) { }
+
+  ngOnInit():void {
+    this._designUtility.exclusiveService.subscribe((res) => {
+       console.log(res);
+       this.exclusive = res
+    })
   }
 
 }
