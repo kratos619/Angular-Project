@@ -9,6 +9,8 @@ export class FromeventService {
   public exclusiveService = new Subject<boolean>();
   public userNameService = new Subject<any>();
 
+  public selectedPost = new Subject();
+
   constructor() { }
 
   appendData(counter,el) {

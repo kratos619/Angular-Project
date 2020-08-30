@@ -1,1 +1,8 @@
-<p>subject-demo-com-four works!</p>
+<div class="card" style="width: 100%;">
+  <ul *ngIf="posts" class="list-group list-group-flush">
+    <li  *ngFor="let item of posts" class="list-group-item">
+     <a style="cursor: pointer;" class="text-info" (click)="getData($event,item)" > {{item.title}}</a>
+    </li>
+
+  </ul>
+</div>

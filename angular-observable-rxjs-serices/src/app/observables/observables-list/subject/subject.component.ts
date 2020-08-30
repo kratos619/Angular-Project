@@ -9,11 +9,18 @@ import {FromeventService} from '../../../appservice/fromevent.service';
 export class SubjectComponent implements OnInit, OnDestroy {
 
   userName ;
+  selectedPost;
   constructor(private _designUitility : FromeventService) {
     this._designUitility.userNameService.subscribe(value => {
       console.log(value);
       this.userName = value;
     })
+
+    this._designUitility.selectedPost.subscribe(
+      value => {
+        this.selectedPost = value;
+      }
+    )
   }
 
   getName(inputField){
