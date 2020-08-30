@@ -1,6 +1,9 @@
 <div class="card">
   <div class="card-body">
-    <p>this is child component one</p>
-
+    <h5 class="card-title">Child Component One {{userName}} </h5>
+    <div class="form-group">
+      <input #inputField type="text" placeholder="enter text" class="form-control">
+    </div>
+    <button (click)="getName(inputField)" class="btn btn-primary">Change Name</button>
   </div>
 </div>

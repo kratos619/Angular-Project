@@ -8,7 +8,18 @@ import {FromeventService} from '../../../appservice/fromevent.service';
 })
 export class SubjectComponent implements OnInit, OnDestroy {
 
-  constructor(private _designUitility : FromeventService) { }
+  userName ;
+  constructor(private _designUitility : FromeventService) {
+    this._designUitility.userNameService.subscribe(value => {
+      console.log(value);
+      this.userName = value;
+    })
+  }
+
+  getName(inputField){
+    console.log(inputField.value);
+    this._designUitility.userNameService.next(inputField.value)
+  }
 
   ngOnInit(): void {
     this._designUitility.exclusiveService.next(true)

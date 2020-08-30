@@ -1,5 +1,9 @@
 <div class="card">
   <div class="card-body">
-    <p>this is child component two</p>
+    <h5 class="card-title">Child Component Two {{userName}} </h5>
+    <div class="form-group">
+      <input #inputName type="text" placeholder="enter text" class="form-control">
     </div>
+    <button (click)="getInputData(inputName)" class="btn btn-primary">Change Name</button>
+  </div>
 </div>

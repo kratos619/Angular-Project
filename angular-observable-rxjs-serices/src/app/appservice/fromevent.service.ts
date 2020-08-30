@@ -7,6 +7,7 @@ import {Subject} from 'rxjs';
 export class FromeventService {
 
   public exclusiveService = new Subject<boolean>();
+  public userNameService = new Subject<any>();
 
   constructor() { }
 

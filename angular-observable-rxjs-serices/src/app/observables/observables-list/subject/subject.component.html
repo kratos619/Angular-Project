@@ -20,7 +20,13 @@
 </div>
 <div class="container">
   <h3>Example two</h3>
-  <p>change parent component name  </p>
+  <p>change parent component name - <span class="text-info" >{{userName}}</span>   </p>
+
+  <div class="form-group col-md-4">
+    <input #inputField class="form-control" placeholder="enter Name" >
+  </div>
+  <button (click)="getName(inputField)" class="btn btn-sm btn-info">change Name</button>
+<hr>
   <div class="row">
     <div class="col-md-4">
      <app-subject-demo-com-one></app-subject-demo-com-one>
