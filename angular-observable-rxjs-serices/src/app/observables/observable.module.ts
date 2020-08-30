@@ -12,13 +12,16 @@ import { PluckComponent } from './observables-list/pluck/pluck.component';
 import { FilterComponent } from './observables-list/filter/filter.component';
 import { TapComponent } from './observables-list/tap/tap.component';
 import { RetryComponent } from './observables-list/retry/retry.component';
+import { DebounceUtilComponent } from './observables-list/debounce-util/debounce-util.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
-  declarations: [ObservablesListComponent, FromEventComponent, IntervalComponent, FromOfOperatorComponent, ToarrayComponent, MapComponent, PluckComponent, FilterComponent, TapComponent, RetryComponent],
-  imports: [
-    CommonModule,
-    ObservableRoutingModule
-  ]
+  declarations: [ObservablesListComponent, FromEventComponent, IntervalComponent, FromOfOperatorComponent, ToarrayComponent, MapComponent, PluckComponent, FilterComponent, TapComponent, RetryComponent, DebounceUtilComponent],
+    imports: [
+        CommonModule,
+        ObservableRoutingModule,
+        FormsModule
+    ]
 })
 export class ObservableModule { }
