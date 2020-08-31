@@ -21,10 +21,11 @@ import { SubjectDemoComThreeComponent } from './observables-list/subject/subject
 import { SubjectDemoComFourComponent } from './observables-list/subject/subject-demo-com-four/subject-demo-com-four.component';
 import { ConcatComponent } from './observables-list/concat/concat.component';
 import { MeargeComponent } from './observables-list/mearge/mearge.component';
+import { SwitchMapComponent } from './observables-list/switch-map/switch-map.component';
 
 
 @NgModule({
-  declarations: [ObservablesListComponent, FromEventComponent, IntervalComponent, FromOfOperatorComponent, ToarrayComponent, MapComponent, PluckComponent, FilterComponent, TapComponent, RetryComponent, DebounceUtilComponent, SubjectComponent, SubjectDemoComOneComponent, SubjectDemoComTwoComponent, SubjectDemoComThreeComponent, SubjectDemoComFourComponent, ConcatComponent, MeargeComponent],
+  declarations: [ObservablesListComponent, FromEventComponent, IntervalComponent, FromOfOperatorComponent, ToarrayComponent, MapComponent, PluckComponent, FilterComponent, TapComponent, RetryComponent, DebounceUtilComponent, SubjectComponent, SubjectDemoComOneComponent, SubjectDemoComTwoComponent, SubjectDemoComThreeComponent, SubjectDemoComFourComponent, ConcatComponent, MeargeComponent, SwitchMapComponent],
     imports: [
         CommonModule,
         ObservableRoutingModule,

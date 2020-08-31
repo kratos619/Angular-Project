@@ -15,6 +15,7 @@ import {RetryComponent} from './observables-list/retry/retry.component';
 import {DebounceUtilComponent} from './observables-list/debounce-util/debounce-util.component';
 import {SubjectComponent} from './observables-list/subject/subject.component';
 import { MeargeComponent } from './observables-list/mearge/mearge.component';
+import { SwitchMapComponent } from './observables-list/switch-map/switch-map.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,7 @@ const routes: Routes = [
       { path: 'subject-and-behavior-subject', component: SubjectComponent },
       { path: 'concate', component: ConcatComponent },
       { path: 'Mearge-Component', component: MeargeComponent },
+      { path: 'switch-map', component: SwitchMapComponent },
     ],
   },
   // { path: '**', redirectTo: 'observables' },
