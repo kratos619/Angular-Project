@@ -31,10 +31,8 @@ export class SubjectDemoComFourComponent implements OnInit, AfterViewInit {
   }
 
   getData(event,item){
-
     console.log(item);
     this._designUitility.selectedPost.next(item)
-
   }
 
 

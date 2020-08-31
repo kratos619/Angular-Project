@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Subject} from 'rxjs';
+import {Subject, BehaviorSubject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,10 @@ export class FromeventService {
   public exclusiveService = new Subject<boolean>();
   public userNameService = new Subject<any>();
 
-  public selectedPost = new Subject();
+  public selectedPost = new BehaviorSubject({
+    title : "this is title",
+    body : "this is body"
+  });
 
   constructor() { }
 

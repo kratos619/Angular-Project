@@ -15,12 +15,6 @@ export class SubjectComponent implements OnInit, OnDestroy {
       console.log(value);
       this.userName = value;
     })
-
-    this._designUitility.selectedPost.subscribe(
-      value => {
-        this.selectedPost = value;
-      }
-    )
   }
 
   getName(inputField){
