@@ -10,18 +10,19 @@ import { interval, concat } from 'rxjs';
 })
 export class ConcatComponent implements OnInit {
 
-  @ViewChild('concateOp') concateOp : ElementRef;
-  constructor(private designUtil : FromeventService) { }
+  @ViewChild('concateOp') concateOp: ElementRef;
+  constructor(private designUtil: FromeventService) { }
 
   ngOnInit(): void {
-    let sourceOne = interval(1000).pipe(take(5),map( (e) => { return `channel A ${e + 1}`} ))
-    let sourceTwo = interval(1000).pipe(take(3),map( (e) => { return `channel B ${e + 1}`} ))
-    let sourceThree = interval(1000).pipe(take(3),map( (e) => { return `channel C ${e + 1}`} ))
+    let sourceOne = interval(1000).pipe(take(5), map((e) => { return `channel A ${e + 1}` }))
+    let sourceTwo = interval(1000).pipe(take(3), map((e) => { return `channel B ${e + 1}` }))
+    let sourceThree = interval(1000).pipe(take(3), map((e) => { return `channel C ${e + 1}` }))
 
     // comcate three
-    let concateFinal = concat(sourceOne,sourceTwo,sourceThree)
+    let concateFinal = concat(sourceOne, sourceTwo, sourceThree)
     concateFinal.subscribe(
-      (res) => {console.log(res);
+      (res) => {
+        console.log(res);
         this.designUtil.printData(res, this.concateOp)
       }
     )
