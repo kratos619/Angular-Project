@@ -2,6 +2,7 @@ import { FromeventService } from './../../../../appservice/fromevent.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { take, toArray, map } from 'rxjs/operators';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-subject-demo-com-four',
@@ -27,7 +28,14 @@ export class SubjectDemoComFourComponent implements OnInit, AfterViewInit {
           this.posts = res;
         }
       )
-
+    // let data = from([[1,2,3,4,5]]);
+    // data
+    // .pipe(take(3))
+    // .subscribe(
+    //   (res) => {
+    //     console.log(res);
+    //   }
+    // )
   }
 
   getData(event,item){
