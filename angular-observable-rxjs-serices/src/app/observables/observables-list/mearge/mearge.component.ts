@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FromeventService } from 'src/app/appservice/fromevent.service';
 import { interval, concat, merge, from, of } from 'rxjs';
-import { take, map, mergeAll } from 'rxjs/operators';
+import { take, map, mergeAll, mergeMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-mearge',
@@ -25,12 +25,13 @@ export class MeargeComponent implements OnInit {
     let concateFinal = merge(sourceOne, sourceTwo, sourceThree)
     concateFinal.subscribe(
       (res) => {
-        console.log(res);
+        // console.log(res);
         this.designUtil.printData(res, this.concateOp)
       }
     )
 
     let dataOne = from(['a','v','b','q']);
+    // console.log('data' , dataOne );
     dataOne
         .pipe(
           map((res) => {return this.getData(res)}),
@@ -38,9 +39,18 @@ export class MeargeComponent implements OnInit {
         )
         .subscribe(
           (e) => {
-            console.log(e);
+            console.log('mergeAll',e);
           }
-        )
+    )
+
+    dataOne.pipe(
+              mergeMap((res) => { return this.getData(res) })
+            )
+            .subscribe(
+              (e) => {
+                console.log('mergeMap', e);
+              }
+            )
 
   }
 

@@ -1,7 +1,7 @@
 import { FromeventService } from 'src/app/appservice/fromevent.service';
-import { take, map } from 'rxjs/operators';
+import { take, map, mergeAll } from 'rxjs/operators';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { interval, concat } from 'rxjs';
+import { interval, concat, from } from 'rxjs';
 
 @Component({
   selector: 'app-concat',
@@ -26,6 +26,19 @@ export class ConcatComponent implements OnInit {
         this.designUtil.printData(res, this.concateOp)
       }
     )
+
+    let dataOne = from(['a','v','b','q']);
+    // dataOne
+    //     .pipe(
+    //       map((res) => {return this.getData(res)}),
+    //       mergeAll()
+    //     )
+    //     .subscribe(
+    //       (e) => {
+    //         console.log(e);
+    //       }
+    //     )
+
 
   }
 
