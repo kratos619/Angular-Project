@@ -1,7 +1,7 @@
 import { FromeventService } from 'src/app/appservice/fromevent.service';
-import { take, map, mergeAll } from 'rxjs/operators';
+import { take, map, mergeAll, concatMap, concatAll } from 'rxjs/operators';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { interval, concat, from } from 'rxjs';
+import { interval, concat, from, of } from 'rxjs';
 
 @Component({
   selector: 'app-concat',
@@ -13,6 +13,9 @@ export class ConcatComponent implements OnInit {
   @ViewChild('concateOp') concateOp: ElementRef;
   constructor(private designUtil: FromeventService) { }
 
+  getData(data){
+    return of(`data stream ${data}`)
+  }
   ngOnInit(): void {
     let sourceOne = interval(1000).pipe(take(5), map((e) => { return `channel A ${e + 1}` }))
     let sourceTwo = interval(1000).pipe(take(3), map((e) => { return `channel B ${e + 1}` }))
@@ -27,17 +30,28 @@ export class ConcatComponent implements OnInit {
       }
     )
 
-    let dataOne = from(['a','v','b','q']);
-    // dataOne
-    //     .pipe(
-    //       map((res) => {return this.getData(res)}),
-    //       mergeAll()
-    //     )
-    //     .subscribe(
-    //       (e) => {
-    //         console.log(e);
-    //       }
-    //     )
+    let dataOne = from(concateFinal);
+    dataOne
+        .pipe(
+          map((res) => {return this.getData(res)}),
+          concatAll()
+        )
+        .subscribe(
+          (e) => {
+            console.log(e);
+
+          }
+        )
+    dataOne
+      .pipe(
+        concatMap((res) => { return this.getData(res) })
+      )
+      .subscribe(
+        (e) => {
+          console.log(e);
+
+        }
+      )
 
 
   }
