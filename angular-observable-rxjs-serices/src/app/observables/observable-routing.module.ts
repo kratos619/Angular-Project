@@ -1,3 +1,4 @@
+import { ConcatComponent } from './observables-list/concat/concat.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ObservablesListComponent } from './observables-list/observables-list.component';
@@ -31,6 +32,7 @@ const routes: Routes = [
       { path: 'to-retry', component: RetryComponent },
       { path: 'debouncetime-util', component: DebounceUtilComponent },
       { path: 'subject-and-behavior-subject', component: SubjectComponent },
+      { path: 'concate', component: ConcatComponent },
     ],
   },
   // { path: '**', redirectTo: 'observables' },

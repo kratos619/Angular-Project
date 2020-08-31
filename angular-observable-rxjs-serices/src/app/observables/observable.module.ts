@@ -19,10 +19,12 @@ import { SubjectDemoComOneComponent } from './observables-list/subject/subject-d
 import { SubjectDemoComTwoComponent } from './observables-list/subject/subject-demo-com-two/subject-demo-com-two.component';
 import { SubjectDemoComThreeComponent } from './observables-list/subject/subject-demo-com-three/subject-demo-com-three.component';
 import { SubjectDemoComFourComponent } from './observables-list/subject/subject-demo-com-four/subject-demo-com-four.component';
+import { ConcatComponent } from './observables-list/concat/concat.component';
+import { MeargeComponent } from './observables-list/mearge/mearge.component';
 
 
 @NgModule({
-  declarations: [ObservablesListComponent, FromEventComponent, IntervalComponent, FromOfOperatorComponent, ToarrayComponent, MapComponent, PluckComponent, FilterComponent, TapComponent, RetryComponent, DebounceUtilComponent, SubjectComponent, SubjectDemoComOneComponent, SubjectDemoComTwoComponent, SubjectDemoComThreeComponent, SubjectDemoComFourComponent],
+  declarations: [ObservablesListComponent, FromEventComponent, IntervalComponent, FromOfOperatorComponent, ToarrayComponent, MapComponent, PluckComponent, FilterComponent, TapComponent, RetryComponent, DebounceUtilComponent, SubjectComponent, SubjectDemoComOneComponent, SubjectDemoComTwoComponent, SubjectDemoComThreeComponent, SubjectDemoComFourComponent, ConcatComponent, MeargeComponent],
     imports: [
         CommonModule,
         ObservableRoutingModule,
