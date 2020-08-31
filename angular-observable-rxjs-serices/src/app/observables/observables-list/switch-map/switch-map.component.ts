@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { of, from } from 'rxjs';
-import { map, delay, switchMap, concatMap } from 'rxjs/operators';
+import { map, delay, switchMap, concatMap, switchAll } from 'rxjs/operators';
 
 @Component({
   selector: 'app-switch-map',
@@ -24,7 +24,7 @@ export class SwitchMapComponent implements OnInit {
         (e) => {console.log('using Map',e);}
       );
 
-    // map example
+    // concatMap example
     mainData
       .pipe(
         concatMap((data) => this.getData(data))
@@ -36,6 +36,7 @@ export class SwitchMapComponent implements OnInit {
         }
       );
 
+      // switch map
     mainData
         .pipe(
           switchMap((data) => this.getData(data))
@@ -46,7 +47,18 @@ export class SwitchMapComponent implements OnInit {
 
           }
         )
+        // switchAll
+    mainData
+      .pipe(
+        map((data) => this.getData(data)),
+        switchAll()
+      )
+      .subscribe(
+        (e) => {
+          console.log('switchAll',e);
 
+        }
+      )
   }
 
 
