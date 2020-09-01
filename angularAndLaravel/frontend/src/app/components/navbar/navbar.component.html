@@ -21,7 +21,7 @@
         <a class="nav-link" [routerLink]="['/signup']" href="#">Register</a>
       </li>
       <li *ngIf="loggedIn" class="nav-item">
-        <a class="nav-link"  href="#">logout</a>
+        <a class="nav-link" (click)="loggout($event)"  href="#">logout</a>
       </li>
     </ul>
   </div>
