@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  error;
   public form = {
     email: null,
     password: null,
@@ -24,6 +25,9 @@ export class LoginComponent implements OnInit {
         },
         (err) => {
           console.log(err);
+          this.error = err.error
+          console.log('thiserror',this.error);
+
         }
       )
   }
