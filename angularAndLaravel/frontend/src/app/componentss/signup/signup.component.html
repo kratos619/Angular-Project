@@ -1,1 +1,36 @@
-<p>signup works!</p>
+<div class="mt-4 col-md-6 mx-auto">
+  <div class="card">
+    <div class="card-header">
+      SignUp here
+    </div>
+    <div class="card-body">
+
+      <form #registerForm="ngForm" (ngSubmit)="onSubmit()"  >
+        <div class="form-group">
+          <label>Name</label>
+            <input required min="3" max="100" [(ngModel)]="form.name" type="text" name="name" class="form-control" id="exampleInputName" aria-describedby="emailHelp">
+            <small class="text-danger" *ngIf="errors" [hidden]="!errors.name" >{{errors.name}}</small>
+          </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="form.email" type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+           <small class="text-danger" *ngIf="errors" [hidden]="!errors.email" >{{errors.email}}</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input required type="password" [(ngModel)]="form.password" name="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password Confirm </label>
+          <input required type="password" [(ngModel)]="form.password_confirmation" name="password_confirmation" class="form-control" id="exampleInputPasswordpassword_confirm">
+          <small class="text-danger" *ngIf="errors" [hidden]="!errors.password" >{{errors.password}}</small>
+        </div>
+        <button type="submit"  class="btn btn-primary btn-block" [disabled]="!registerForm.form.valid">
+          Save
+        </button>
+
+      </form>
+    </div>
+  </div>
+</div>

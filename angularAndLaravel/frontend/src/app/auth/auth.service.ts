@@ -15,6 +15,10 @@ export class AuthService {
     return this.http.post(`${this.baseUrl}${url}`, body)
   }
 
+  registerUser(url,body){
+    return this.http.post(`${this.baseUrl}${url}`, body);
+  }
+
 
 
 

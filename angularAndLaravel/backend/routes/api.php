@@ -22,6 +22,7 @@ Route::group([
     'prefix' => 'auth'
 ], function ($router) {
 
+    Route::post('register-user', 'AuthController@registerUser');
     Route::post('login', 'AuthController@login');
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
