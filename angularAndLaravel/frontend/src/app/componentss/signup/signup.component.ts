@@ -20,14 +20,15 @@ export class SignupComponent implements OnInit {
 
   onSubmit() {
     console.log(this.form);
-    this.authService.registerUser('auth/register-user', this.form).subscribe(
-      (res) => {
-        console.log(res);
-      },
-      (err) => {
-        this.errors = err.error.errors;
-        console.log('err', this.errors);
-      }
-    );
+    this.authService.registerUser('auth/register-user', this.form)
+        .subscribe(
+          (res) => {
+            console.log(res);
+          },
+          (err) => {
+            this.errors = err.error.errors;
+            console.log('err', this.errors);
+          }
+        );
   }
 }
