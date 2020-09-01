@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -9,7 +10,8 @@ import { SignupComponent } from './componentss/signup/signup.component';
 import { ProfileComponent } from './componentss/profile/profile.component';
 import { HomeComponent } from './componentss/home/home.component';
 
-import {FormsModule} from '@angular/forms'
+import {FormsModule} from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import {FormsModule} from '@angular/forms'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
