@@ -13,11 +13,15 @@
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item" routerLinkActive="active">
+
+      <li *ngIf="!loggedIn" class="nav-item" routerLinkActive="active">
         <a class="nav-link"  [routerLink]="['/login']" href="#">Login</a>
       </li>
-      <li class="nav-item" routerLinkActive="active" >
+      <li *ngIf="!loggedIn" class="nav-item" routerLinkActive="active" >
         <a class="nav-link" [routerLink]="['/signup']" href="#">Register</a>
+      </li>
+      <li *ngIf="loggedIn" class="nav-item">
+        <a class="nav-link"  href="#">logout</a>
       </li>
     </ul>
   </div>
