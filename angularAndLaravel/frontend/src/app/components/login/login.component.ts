@@ -1,3 +1,4 @@
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { TokenService } from './../../service/Token/token.service';
 
 import { AuthService } from 'src/app/service/auth/auth.service';
@@ -17,35 +18,32 @@ export class LoginComponent implements OnInit {
   };
 
   constructor(
-    private authService : AuthService,
-    private tokenHandler : TokenService,
-    private route : Router
-    ) {}
+    private authService: AuthService,
+    private tokenHandler: TokenService,
+    private route: Router,
+    private _jwtHelper : JwtHelperService
+  ) {}
 
   ngOnInit(): void {}
 
   onSubmit() {
-    this.authService.login('auth/login',this.form)
-      .subscribe(
-        (res) => {
-          console.log(res);
-          this.handleResponseToken(res);
-
-        },
-        (err) => {
-          console.log(err);
-          this.error = err.error
-          console.log('thiserror',this.error);
-
-        }
-      )
+    this.authService.login('auth/login', this.form).subscribe(
+      (res) => {
+        console.log(res);
+        this.handleResponseToken(res);
+      },
+      (err) => {
+        console.log(err);
+        this.error = err.error;
+        console.log('thiserror', this.error);
+      }
+    );
   }
 
-  handleResponseToken(data){
+  handleResponseToken(data) {
     this.tokenHandler.handle(data.access_token);
     this.authService.changeAuthStatus(true);
     this.route.navigateByUrl('/profile');
-
   }
 }
 

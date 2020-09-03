@@ -8,7 +8,7 @@ import { TokenService } from '../Token/token.service';
   providedIn: 'root',
 })
 export class AuthService {
-  private baseUrl = 'http://127.0.0.1:8000/api/';
+  private baseUrl = 'http://laraangular.example.com/api/';
   private loggedIn = new BehaviorSubject<boolean>(this._token.isLoggedIn());
   authStatus = this.loggedIn.asObservable();
   changeAuthStatus(value: boolean) {
@@ -24,7 +24,7 @@ export class AuthService {
   registerUser(url, body) {
     return this.http.post(`${this.baseUrl}${url}`, body);
   }
-  logOut(url){
-    return this.http.post(`${this.baseUrl}${url}`,{});
+  logOut(url) {
+    return this.http.post(`${this.baseUrl}${url}`, {});
   }
 }

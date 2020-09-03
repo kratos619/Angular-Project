@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 @Injectable({
   providedIn: 'root',
 })
 export class TokenService {
   private iss = {
-    login: 'http://127.0.0.1:8000/api/auth/login',
-    signup: 'http://127.0.0.1:8000/api/auth/register-user',
+    login: 'http://laraangular.example.com/api/auth/login',
+    signup: 'http://laraangular.example.com/api/auth/register-user',
   };
   constructor() {}
 
-  handle(token:any) {
+  handle(token: any) {
     this.set(token);
   }
 
@@ -27,12 +28,11 @@ export class TokenService {
 
   isValid() {
     const token = this.get();
+
     if (token) {
       const payload = this.getPayload(token);
       if (payload) {
-        return Object.values(this.iss).indexOf(payload.iss) > -1
-          ? true
-          : false;
+        return Object.values(this.iss).indexOf(payload.iss) > -1 ? true : false;
       }
     }
     return false;
@@ -46,7 +46,7 @@ export class TokenService {
   deCodePayload(token) {
     return JSON.parse(atob(token));
   }
-  isLoggedIn(){
+  isLoggedIn() {
     return this.isValid();
   }
 }
