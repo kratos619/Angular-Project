@@ -22,9 +22,21 @@ export class NavbarComponent implements OnInit {
 
   loggout(event:Event){
       event.preventDefault();
-      this._tokenService.remove();
-      this._authService.changeAuthStatus(false);
-      this._router.navigateByUrl('/login');
+
+      this._authService.logOut('auth/logout').subscribe(
+        (res) => {
+          console.log(res);
+          this._tokenService.remove();
+          this._authService.changeAuthStatus(false);
+          this._router.navigateByUrl('/login');
+        },
+
+        (err) => {
+          console.log(err);
+        },
+
+      )
+
       console.log(event);
 
 

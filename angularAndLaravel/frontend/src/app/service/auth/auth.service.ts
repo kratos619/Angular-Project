@@ -24,4 +24,7 @@ export class AuthService {
   registerUser(url, body) {
     return this.http.post(`${this.baseUrl}${url}`, body);
   }
+  logOut(url){
+    return this.http.post(`${this.baseUrl}${url}`,{});
+  }
 }
