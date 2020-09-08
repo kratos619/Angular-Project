@@ -28,6 +28,6 @@ export class LoginComponent {
 
   logout() {
     this.authService.logout();
-    this._route.navigate(['/']);
+    return this._route.navigate(['/welcome']);
   }
 }
