@@ -4,7 +4,7 @@ import { WelcomeComponent } from '../home/welcome.component';
 import { PageNotFoundComponent } from '../page-not-found.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [WelcomeComponent, PageNotFoundComponent],
   imports: [
     RouterModule.forRoot([
       { path: 'welcome', component: WelcomeComponent },

@@ -8,7 +8,12 @@
       <a [routerLink]="['/products']" class="nav-link">Product List</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link">Add Product</a>
+      <a
+        [routerLink]="['/products', 0, 'edit']"
+        routerLinkActive="router-link-active"
+        class="nav-link"
+        >Add Product</a
+      >
     </li>
   </ul>
   <ul class="navbar-nav ml-auto">
