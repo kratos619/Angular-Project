@@ -6,11 +6,14 @@ import { PageNotFoundComponent } from '../page-not-found.component';
 @NgModule({
   declarations: [WelcomeComponent, PageNotFoundComponent],
   imports: [
-    RouterModule.forRoot([
-      { path: 'welcome', component: WelcomeComponent },
-      { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-      { path: '**', component: PageNotFoundComponent },
-    ]),
+    RouterModule.forRoot(
+      [
+        { path: 'welcome', component: WelcomeComponent },
+        { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+        { path: '**', component: PageNotFoundComponent },
+      ],
+      { enableTracing: true }
+    ),
   ],
   exports: [RouterModule],
 })
