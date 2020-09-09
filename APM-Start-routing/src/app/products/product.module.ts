@@ -1,3 +1,5 @@
+import { ProductEditTagsComponent } from './product-edit/product-edit-tags.component';
+import { ProductEditInfoComponent } from './product-edit/product-edit-info.component';
 import { ProductResolverService } from './product-resolver.service';
 import { NgModule } from '@angular/core';
 
@@ -22,6 +24,21 @@ import { RouterModule } from '@angular/router';
         path: 'products/:id/edit',
         component: ProductEditComponent,
         resolve: { resolveData: ProductResolverService },
+        children: [
+          {
+            path: '',
+            redirectTo: 'info',
+            pathMatch: 'full',
+          },
+          {
+            path: 'info',
+            component: ProductEditInfoComponent,
+          },
+          {
+            path: 'tags',
+            component: ProductEditTagsComponent,
+          },
+        ],
       },
     ]),
   ],
@@ -29,6 +46,8 @@ import { RouterModule } from '@angular/router';
     ProductListComponent,
     ProductDetailComponent,
     ProductEditComponent,
+    ProductEditInfoComponent,
+    ProductEditTagsComponent,
   ],
 })
 export class ProductModule {}
