@@ -1,3 +1,4 @@
+// import { Product } from './../product';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
@@ -11,14 +12,13 @@ export class ProductEditInfoComponent implements OnInit {
   @ViewChild(NgForm, { static: false }) productForm: NgForm;
 
   errorMessage: string;
-  product = {
-    id: 1,
-    productName: 'test',
-    productCode: 'test',
-    description: 'test',
-  };
+  product: Product;
 
   constructor(private route: ActivatedRoute) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.route.parent.data.subscribe((result) => {
+      this.product = result['resolveData'];
+    });
+  }
 }
