@@ -7,12 +7,20 @@
             <div class="form-group">
               <label for="username">Username</label>
               <input
+                minlength="3"
                 type="text"
                 name="username"
                 ngModel
                 id="username"
                 class="form-control"
+                required
+                #username="ngModel"
               />
+              <span
+                class="help-block"
+                *ngIf="!username.valid && username.touched"
+                >required min char 3</span
+              >
             </div>
             <button class="btn btn-default" type="button">
               Suggest an Username
@@ -25,17 +33,39 @@
                 type="email"
                 id="email"
                 class="form-control"
+                required
+                email
+                #email="ngModel"
               />
+              <span class="help-block" *ngIf="!email.valid && email.touched"
+                >required Valid Email</span
+              >
             </div>
           </div>
           <div class="form-group">
             <label for="secret">Secret Questions</label>
-            <select name="secret" ngModel id="secret" class="form-control">
+            <select
+              required
+              name="secret"
+              ngModel
+              id="secret"
+              class="form-control"
+              #secret="ngModel"
+            >
               <option value="pet">Your first Pet?</option>
               <option value="teacher">Your first teacher?</option>
             </select>
+            <span class="help-block" *ngIf="!secret.valid && secret.touched"
+              >required fied</span
+            >
           </div>
-          <button class="btn btn-primary" type="submit">Submit</button>
+          <button
+            [disabled]="!form.valid"
+            class="btn btn-primary"
+            type="submit"
+          >
+            Submit
+          </button>
         </form>
       </div>
     </div>
