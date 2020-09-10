@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: "app-root",
@@ -10,5 +11,19 @@ export class AppComponent {
     const suggestedName = "Superuser";
   }
 
-  onSubmit() {}
+  fields = [
+    {
+      name: "start",
+    },
+  ];
+  onSubmit(form: NgForm) {
+    console.log(form);
+  }
+
+  addField() {
+    console.log("hi");
+    this.fields.push({
+      name: "a",
+    });
+  }
 }
