@@ -6,6 +6,7 @@ import {
   Validators,
   FormArray,
 } from "@angular/forms";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-root",
@@ -22,7 +23,11 @@ export class AppComponent implements OnInit, AfterViewInit {
           Validators.required,
           Validators.minLength(3),
         ]),
-        email: new FormControl(null, [Validators.email, Validators.required]),
+        email: new FormControl(
+          null,
+          [Validators.email, Validators.required],
+          this.forbiddenEmail.bind(this)
+        ),
       }),
       secret: new FormControl(null, Validators.required),
       hobbies: new FormArray([]),
@@ -34,6 +39,18 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
   ngAfterViewInit() {
     // this.signupForm.value.username = "gaurav";
+  }
+  forbiddenEmail(control: FormControl): Promise<any> | Observable<any> {
+    const err_control = new Promise<any>((resolve, reject) => {
+      setTimeout(() => {
+        if (control.value == "test@test.com") {
+          resolve({ email_is_taken: true });
+        } else {
+          resolve(null);
+        }
+      }, 1500);
+    });
+    return err_control;
   }
   onsubmit() {
     console.log(this.signUpFrom);
