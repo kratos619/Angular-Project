@@ -3,21 +3,20 @@
     <div class="col-md-6">
       <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
         <form [formGroup]="signUpFrom" (ngSubmit)="onsubmit()">
-          <div id="user-data">
+          <div formGroupName="userData">
             <div class="form-group">
               <label for="username">Username</label>
               <input
                 minlength="3"
                 type="text"
-                name="username"
                 id="username"
                 class="form-control"
                 formControlName="username"
               />
               <span
                 *ngIf="
-                  !signUpFrom.get('username').valid &&
-                  signUpFrom.get('username').touched
+                  !signUpFrom.get('userData.username').valid &&
+                  signUpFrom.get('userData.username').touched
                 "
                 class="help-block"
                 >required min char 3</span
@@ -27,7 +26,6 @@
             <div class="form-group">
               <label for="email">Mail</label>
               <input
-                name="email"
                 type="email"
                 id="email"
                 class="form-control"
@@ -48,6 +46,21 @@
               <option value="teacher">Your first teacher?</option>
             </select>
             <span class="help-block">required fied</span>
+          </div>
+          <div formArrayName="hobbies">
+            <label for="h">Hobby</label>
+            <div
+              class="form-group"
+              *ngFor="
+                let item of signUpFrom.get('hobbies').controls;
+                let i = index
+              "
+            >
+              <input type="text" class="form-control" [formControlName]="i" />
+              <span class="help-block">required Valid hobby</span>
+            </div>
+            <br />
+            <button type="button" (click)="addHobby()">add</button>
           </div>
           <button class="btn btn-primary" type="submit">Submit</button>
         </form>
