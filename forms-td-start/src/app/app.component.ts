@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit, ViewChild, AfterViewInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
 
 @Component({
@@ -6,11 +6,19 @@ import { NgForm } from "@angular/forms";
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"],
 })
-export class AppComponent {
-  suggestUserName() {
-    const suggestedName = "Superuser";
+export class AppComponent implements OnInit, AfterViewInit {
+  ngOnInit(): void {
+    // throw new Error("Method not implemented.");
   }
+  @ViewChild("form", { static: false }) signupForm: NgForm;
 
+  suggestUserName() {
+    this.signupForm.form.patchValue({
+      username: "gaurav",
+      email: "gaurav@mail.com",
+      secret: "pet",
+    });
+  }
   fields = [
     {
       name: "start",
@@ -25,5 +33,9 @@ export class AppComponent {
     this.fields.push({
       name: "a",
     });
+  }
+
+  ngAfterViewInit() {
+    // this.signupForm.value.username = "gaurav";
   }
 }
