@@ -32,6 +32,14 @@ export class AppComponent implements OnInit, AfterViewInit {
       secret: new FormControl(null, Validators.required),
       hobbies: new FormArray([]),
     });
+    this.signUpFrom.setValue({
+      userData: {
+        username: "asd",
+        email: "a",
+      },
+      secret: "pet",
+      hobbies: new Array([1, 2, 3]),
+    });
   }
   addHobby() {
     const control = new FormControl(null, Validators.required);
