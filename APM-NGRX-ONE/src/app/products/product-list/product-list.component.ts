@@ -23,7 +23,10 @@ export class ProductListComponent implements OnInit, OnDestroy {
   selectedProduct: Product | null;
   sub: Subscription;
 
-  constructor(private _store: Store, private productService: ProductService) {}
+  constructor(
+    private _store: Store<any>,
+    private productService: ProductService
+  ) {}
 
   ngOnInit(): void {
     this.sub = this.productService.selectedProductChanges$.subscribe(
