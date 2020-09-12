@@ -5,6 +5,7 @@ import { Subscription, Observable } from 'rxjs';
 
 import { Product } from '../product';
 import { ProductService } from '../product.service';
+import { ProductState, State } from '../state/product.reducer';
 
 @Component({
   selector: 'pm-product-list',
@@ -24,7 +25,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   sub: Subscription;
 
   constructor(
-    private _store: Store<any>,
+    private _store: Store<State>,
     private productService: ProductService
   ) {}
 
@@ -40,9 +41,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
     this._store.select('products').subscribe((products) => {
       console.log('subscribe', products);
-      if (products) {
-        this.displayCode = products['showProduct'];
-      }
+      this.displayCode = products['showProduct'];
     });
   }
 
