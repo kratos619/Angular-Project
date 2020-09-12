@@ -5,7 +5,11 @@ import { Subscription, Observable } from 'rxjs';
 
 import { Product } from '../product';
 import { ProductService } from '../product.service';
-import { ProductState, State } from '../state/product.reducer';
+import {
+  getShowProductCode,
+  ProductState,
+  State,
+} from '../state/product.reducer';
 
 @Component({
   selector: 'pm-product-list',
@@ -39,9 +43,9 @@ export class ProductListComponent implements OnInit, OnDestroy {
       error: (err) => (this.errorMessage = err),
     });
 
-    this._store.select('products').subscribe((products) => {
-      console.log('subscribe', products);
-      this.displayCode = products['showProduct'];
+    this._store.select(getShowProductCode).subscribe((showProduct) => {
+      console.log('subscribe', showProduct);
+      this.displayCode = showProduct;
     });
   }
 
