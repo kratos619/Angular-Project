@@ -1,10 +1,13 @@
 <div class="container pt-5">
   <div class="row">
     <div class="col-md-6">
-      <pm-forminputs></pm-forminputs>
+      <pm-forminputs
+        [item]="currentItem"
+        (newItemEvent)="newItemEvent($event)"
+      ></pm-forminputs>
     </div>
     <div class="col-md-6">
-      <pm-formoutput></pm-formoutput>
+      <pm-formoutput [item]="currentItem"></pm-formoutput>
     </div>
   </div>
 </div>
