@@ -19,6 +19,7 @@ import { UserModule } from './user/user.module';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { FormeventsModule } from './formevents/formevents.module';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(ProductData),
     UserModule,
+    FormeventsModule,
     AppRoutingModule,
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({
