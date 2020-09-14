@@ -8,6 +8,7 @@ import {
   on,
 } from '@ngrx/store';
 import * as AppState from '../../state/app.state';
+import * as ProductActions from './product.action';
 
 export interface State extends AppState.State {
   products: ProductState;
@@ -45,7 +46,7 @@ export const getproducts = createSelector(
 export const productReducres = createReducer<ProductState>(
   initialState, //initial state
   on(
-    createAction('[product] toggle product code'),
+    ProductActions.toggleProductCode,
     (state): ProductState => {
       return {
         ...state,
