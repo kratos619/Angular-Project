@@ -4,10 +4,23 @@ import {
   FormGroup,
   FormBuilder,
   Validators,
+  AbstractControl,
 } from '@angular/forms';
 
 import { Customer } from './customer';
+function emailMatcher(c: AbstractControl) {
+  const emailControl = c.get('email');
+  const confirmemailControl = c.get('confirmemail');
 
+  if (emailControl.pristine || confirmemailControl.pristine) {
+    return null;
+  }
+  if (emailControl.value === confirmemailControl.value) {
+    return null;
+  }
+
+  return { match: true };
+}
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
@@ -22,7 +35,13 @@ export class CustomerComponent implements OnInit, AfterViewInit {
     this.customerForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(3)]],
       lastName: ['', [Validators.required, Validators.maxLength(50)]],
-      email: ['', [Validators.required, Validators.email]],
+      emailGroup: this.fb.group(
+        {
+          email: ['', [Validators.required, Validators.email]],
+          confirmemail: ['', [Validators.required, Validators.email]],
+        },
+        { validators: emailMatcher }
+      ),
       phone: ['', [Validators.required]],
       notification: ['email'],
       sendCatalog: [true],

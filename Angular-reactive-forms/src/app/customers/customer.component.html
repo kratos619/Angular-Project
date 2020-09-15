@@ -64,36 +64,81 @@
           </span>
         </div>
       </div>
-
-      <div class="form-group row mb-2">
-        <label class="col-md-2 col-form-label" for="emailId">Email</label>
-        <div class="col-md-8">
-          <input
-            class="form-control"
-            id="emailId"
-            type="email"
-            placeholder="Email (required)"
-            name="email"
-            required
-            email
-            formControlName="email"
-            [ngClass]="{
-              'is-invalid':
-                (customerForm.get('email').touched ||
-                  customerForm.get('email').dirty) &&
-                !customerForm.get('email').valid
-            }"
-          />
-          <span class="invalid-feedback">
-            <span *ngIf="customerForm.get('email').errors?.required">
-              Please enter your email address.
+      <div formGroupName="emailGroup">
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="emailId">Email</label>
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="emailId"
+              type="email"
+              placeholder="Email (required)"
+              name="email"
+              required
+              email
+              formControlName="email"
+              [ngClass]="{
+                'is-invalid':
+                  customerForm.get('emailGroup').errors ||
+                  ((customerForm.get('emailGroup.email').touched ||
+                    customerForm.get('emailGroup.email').dirty) &&
+                    !customerForm.get('emailGroup.email').valid)
+              }"
+            />
+            <span class="invalid-feedback">
+              <span
+                *ngIf="customerForm.get('emailGroup.email').errors?.required"
+              >
+                Please enter your email address.
+              </span>
+              <span *ngIf="customerForm.get('emailGroup.email').errors?.email">
+                Please enter a valid email address.
+              </span>
             </span>
-            <span *ngIf="customerForm.get('email').errors?.email">
-              Please enter a valid email address.
+          </div>
+        </div>
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="emailId"
+            >Confirmemail Email</label
+          >
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="emailId"
+              type="email"
+              placeholder="confirmemail (required)"
+              name="email"
+              required
+              email
+              formControlName="confirmemail"
+              [ngClass]="{
+                'is-invalid':
+                  customerForm.get('emailGroup').errors ||
+                  ((customerForm.get('emailGroup.email').touched ||
+                    customerForm.get('emailGroup.email').dirty) &&
+                    !customerForm.get('emailGroup.email').valid)
+              }"
+            />
+            <span class="invalid-feedback">
+              <span
+                *ngIf="
+                  customerForm.get('emailGroup.confirmemail').errors?.required
+                "
+              >
+                Please enter your email address.
+              </span>
+              <span
+                *ngIf="
+                  customerForm.get('emailGroup.confirmemail').errors?.email
+                "
+              >
+                Please enter a valid email address.
+              </span>
             </span>
-          </span>
+          </div>
         </div>
       </div>
+
       <div class="form-group row mb-2">
         <label class="col-md-2 col-form-label" for="Phone">Phone</label>
         <div class="col-md-8">
@@ -112,7 +157,7 @@
             }"
           />
           <span class="invalid-feedback">
-            <span *ngIf="customerForm.get('email').errors?.required">
+            <span *ngIf="customerForm.get('phone').errors?.required">
               Phone Number is required
             </span>
           </span>
