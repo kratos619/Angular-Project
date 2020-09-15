@@ -1,5 +1,10 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  FormBuilder,
+  Validators,
+} from '@angular/forms';
 
 import { Customer } from './customer';
 
@@ -11,14 +16,14 @@ import { Customer } from './customer';
 export class CustomerComponent implements OnInit, AfterViewInit {
   customer = new Customer();
   customerForm: FormGroup;
-  constructor() {}
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.customerForm = new FormGroup({
-      firstName: new FormControl(),
-      lastName: new FormControl(),
-      email: new FormControl(),
-      sendCatalog: new FormControl(false),
+    this.customerForm = this.fb.group({
+      firstName: ['', [Validators.required, Validators.minLength(3)]],
+      lastName: ['', [Validators.required, Validators.maxLength(50)]],
+      email: ['', [Validators.required, Validators.email]],
+      sendCatalog: [true],
     });
   }
 
