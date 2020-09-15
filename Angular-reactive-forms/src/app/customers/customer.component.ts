@@ -23,10 +23,22 @@ export class CustomerComponent implements OnInit, AfterViewInit {
       firstName: ['', [Validators.required, Validators.minLength(3)]],
       lastName: ['', [Validators.required, Validators.maxLength(50)]],
       email: ['', [Validators.required, Validators.email]],
+      phone: ['', [Validators.required]],
+      notification: ['email'],
       sendCatalog: [true],
     });
   }
 
+  setNotificaion(notifyVia: string) {
+    const phoneControl = this.customerForm.get('phone');
+    if (notifyVia === 'text') {
+      phoneControl.setValidators(Validators.required);
+    } else {
+      phoneControl.clearValidators();
+    }
+    phoneControl.updateValueAndValidity();
+    // console.log(event);
+  }
   ngAfterViewInit() {
     // this.customerForm.setValue({
     //   firstName: 'gairav',
