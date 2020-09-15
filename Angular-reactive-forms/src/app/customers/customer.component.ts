@@ -5,6 +5,7 @@ import {
   FormBuilder,
   Validators,
   AbstractControl,
+  FormArray,
 } from '@angular/forms';
 
 import { Customer } from './customer';
@@ -45,9 +46,26 @@ export class CustomerComponent implements OnInit, AfterViewInit {
       phone: ['', [Validators.required]],
       notification: ['email'],
       sendCatalog: [true],
+      addressFormGroup: this.fb.array([this.builAddress()]),
     });
   }
 
+  get addressFormGroup(): FormArray {
+    return <FormArray>this.customerForm.get('addressFormGroup');
+  }
+  addAddressFormGroup() {
+    this.addressFormGroup.push(this.builAddress());
+  }
+  builAddress(): FormGroup {
+    return this.fb.group({
+      addressType: '',
+      street1: '',
+      street2: '',
+      city: '',
+      state: '',
+      zip: '',
+    });
+  }
   setNotificaion(notifyVia: string) {
     const phoneControl = this.customerForm.get('phone');
     if (notifyVia === 'text') {
