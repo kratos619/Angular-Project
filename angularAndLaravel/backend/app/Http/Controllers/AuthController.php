@@ -17,12 +17,12 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login', 'registerUser']]);
+        $this->middleware('auth:api', ['except' => ['login', 'registerUser', 'user_list']]);
     }
 
     public function user_list(Request $request)
     {
-        $users = User::all();
+        $users = User::paginate();
         return response()->json($users, 200);
     }
     public function registerUser(SignUpRequest $request)
