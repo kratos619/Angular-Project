@@ -20,26 +20,31 @@ class AuthController extends Controller
         $this->middleware('auth:api', ['except' => ['login', 'registerUser']]);
     }
 
+    public function user_list(Request $request)
+    {
+        $users = User::all();
+        return response()->json($users, 200);
+    }
     public function registerUser(SignUpRequest $request)
     {
         $user = User::create($request->all());
         return $this->login($request);
 
-                // $validator = Validator::make($request->all(), [
-                //     'name' => 'required|max:100|min:3',
-                //     'email' => 'required|max:100|min:3|email|unique:users',
-                //     'password' => 'required|max:100|min:3',
-                // ]);
+        // $validator = Validator::make($request->all(), [
+        //     'name' => 'required|max:100|min:3',
+        //     'email' => 'required|max:100|min:3|email|unique:users',
+        //     'password' => 'required|max:100|min:3',
+        // ]);
 
-                // if ($validator->fails()) {
-                //     return response()->json(["error" => $validator->getMessageBag()], 400);
-                // } else {
-                //     // do somthig
-                    // $user = User::create($request->all());
-                    // return $this->login($request);
-                //    return response()->json($request->all(),200);
+        // if ($validator->fails()) {
+        //     return response()->json(["error" => $validator->getMessageBag()], 400);
+        // } else {
+        //     // do somthig
+        // $user = User::create($request->all());
+        // return $this->login($request);
+        //    return response()->json($request->all(),200);
 
-            // }
+        // }
     }
     /**
      * Get a JWT via given credentials.

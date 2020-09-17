@@ -22,6 +22,7 @@ Route::group([
 ], function ($router) {
 
     Route::post('register-user', 'AuthController@registerUser');
+    Route::post('users-list', 'AuthController@user_list');
     Route::post('login', 'AuthController@login');
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
