@@ -27,8 +27,19 @@ class AuthController extends Controller
     }
     public function registerUser(SignUpRequest $request)
     {
-        $user = User::create($request->all());
-        return $this->login($request);
+        $validator = Validator::make($request->all(), [
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(["error" => $validator->messages(), 200]);
+        } else {
+            // do somthig
+
+            $user = User::create($request->all());
+            return $this->login($request);
+        }
 
         // $validator = Validator::make($request->all(), [
         //     'name' => 'required|max:100|min:3',
@@ -51,15 +62,27 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function login()
+    public function login(Request $request)
     {
-        $credentials = request(['email', 'password']);
+        $validator = Validator::make($request->all(), [
+            'email' => 'required',
+            'password' => 'required',
 
-        if (!$token = auth()->attempt($credentials)) {
-            return response()->json(['error' => 'Credentials Invalid'], 401);
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(["error" => $validator->getMessageBag()], 200);
+        } else {
+            // do somthig
+
+            $credentials = request(['email', 'password']);
+
+            if (!$token = auth()->attempt($credentials)) {
+                return response()->json(['error' => 'Credentials Invalid'], 401);
+            }
+
+            return $this->respondWithToken($token);
         }
-
-        return $this->respondWithToken($token);
     }
 
     /**
