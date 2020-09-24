@@ -1,16 +1,13 @@
 html,
 body {
   height: 100%;
+  overflow: hidden;
 }
 
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  -webkit-app-region: drag;
 }
 
-.example-container {
-  width: 400px;
-  height: 200px;
-  margin: 10px;
-  border: 1px solid #555;
-}
+

@@ -10,21 +10,23 @@ function createWindow(): BrowserWindow {
   const electronScreen = screen;
   const size = electronScreen.getPrimaryDisplay().workAreaSize;
 
-  // Create the browser window.
-  win = new BrowserWindow({
-    x: 0,
-    y: 0,
-    width: size.width,
-    height: size.height,
-    backgroundColor: "#FFFFFF", // background color
-    webPreferences: {
-      nodeIntegration: true,
-      allowRunningInsecureContent: serve ? true : false,
-      enableRemoteModule: true, // true if you want to run 2e2 test or use remote module in renderer context (ie. Angular)
-    },
-  });
-
   if (serve) {
+
+    // Create the browser window.
+    win = new BrowserWindow({
+
+      width: size.width,
+      height: size.height,
+      backgroundColor: "#FFFFFF", // background color
+      webPreferences: {
+        nodeIntegration: true,
+        allowRunningInsecureContent: serve ? true : false,
+        enableRemoteModule: true, // true if you want to run 2e2 test or use remote module in renderer context (ie. Angular)
+      },
+      transparent: true,
+      frame: false,
+      resizable : true,
+    });
     win.webContents.openDevTools();
 
     require("electron-reload")(__dirname, {
