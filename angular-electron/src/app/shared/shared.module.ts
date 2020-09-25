@@ -1,7 +1,8 @@
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
+
 import { TranslateModule } from "@ngx-translate/core";
+
 import { PageNotFoundComponent } from "./components/";
 import { WebviewDirective } from "./directives/";
 import { FormsModule } from "@angular/forms";
@@ -19,6 +20,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatListModule } from "@angular/material/list";
 import { MatCardModule } from "@angular/material/card";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [PageNotFoundComponent, WebviewDirective],
