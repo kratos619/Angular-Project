@@ -21,6 +21,7 @@ import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatListModule } from "@angular/material/list";
 import { MatCardModule } from "@angular/material/card";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatTooltipModule } from "@angular/material/tooltip";
 
 @NgModule({
   declarations: [PageNotFoundComponent, WebviewDirective],
@@ -43,6 +44,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatTooltipModule,
   ],
   exports: [
     TranslateModule,
@@ -63,6 +65,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatTooltipModule,
   ],
 })
 export class SharedModule {}

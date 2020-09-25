@@ -1,22 +1,107 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
-               [attr.role]="'dialog'"
-               [mode]="'side'"
-               [opened]="true"
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="'dialog'"
+    [mode]="'side'"
+    [opened]="true"
   >
     <mat-toolbar>App Name</mat-toolbar>
     <mat-nav-list>
-      <a [routerLink]="['/homeOne']">home One</a>
+      <div class="fill-height-or-more">
+        <div>
+          <button
+            class="bg-primary-personal"
+            mat-fab
+            matTooltip="Info about the action"
+            aria-label="Example icon button with a home icon"
+          >
+            <mat-icon>home</mat-icon>
+          </button>
+        </div>
+        <div>
+          <button class="bg-primary-personal" mat-fab>
+            <mat-icon>assignment</mat-icon>
+          </button>
+        </div>
+
+        <div>
+          <button mat-fab class="bg-primary-personal">
+            <mat-icon>perm_media</mat-icon>
+          </button>
+        </div>
+
+        <div>
+          <button mat-fab class="bg-primary-personal">
+            <mat-icon>bug_report</mat-icon>
+          </button>
+        </div>
+      </div>
+      <!-- <div class="main-menu-container">
+        <button
+          mat-fab
+          color="warn"
+          aria-label="Example icon button with a home icon"
+        >
+          <mat-icon>home</mat-icon>
+        </button>
+        <button
+          mat-fab
+          color="warn"
+          aria-label="Example icon button with a home icon"
+        >
+          <mat-icon>home</mat-icon>
+        </button>
+        <button
+          mat-fab
+          color="warn"
+          aria-label="Example icon button with a home icon"
+        >
+          <mat-icon>home</mat-icon>
+        </button>
+        <button
+          mat-fab
+          color="warn"
+          aria-label="Example icon button with a home icon"
+        >
+          <mat-icon>home</mat-icon>
+        </button>
+      </div> -->
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar>
-
-    </mat-toolbar>
-    <!-- Add Content Here -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary-personal">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li
+            style="-webkit-user-select: none; -webkit-app-region: drag"
+            class="nav-item mr-1"
+          >
+            <button mat-mini-fab class="bg-primary-personal">
+              <span class="material-icons"> drag_indicator </span>
+            </button>
+          </li>
+          <li class="nav-item mr-1">
+            <button mat-mini-fab class="bg-primary-personal">
+              <span class="material-icons"> minimize </span>
+            </button>
+          </li>
+          <li class="nav-item mr-1">
+            <button mat-mini-fab class="bg-primary-personal">
+              <span class="material-icons"> fullscreen </span>
+            </button>
+          </li>
+          <li class="nav-item mr-1">
+            <button mat-mini-fab class="bg-primary-personal">
+              <span class="material-icons"> close </span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
     <div>
       <router-outlet></router-outlet>
     </div>
-
   </mat-sidenav-content>
 </mat-sidenav-container>
