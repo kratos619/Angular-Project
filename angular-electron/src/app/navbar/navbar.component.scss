@@ -1,7 +1,22 @@
 .sidenav-container {
   height: 100%;
   background: white;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+  display: inline-block;
+  padding-right: .5rem;
+  color: #6c757d;
+  content: "";
+}
+
+.dragME {
+  -webkit-user-select: none;
   -webkit-app-region: drag;
+}
+
+.titlebar-button {
+  -webkit-app-region: no-drag;
 }
 
 .sidenav {

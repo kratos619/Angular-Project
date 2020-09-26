@@ -103,14 +103,11 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary-personal">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item mr-1">
-            <button mat-mini-fab class="bg-primary-personal">
-              <span class="material-icons"> drag_indicator </span>
-            </button>
-          </li>
+    <div
+      class="navbar navbar-expand-lg navbar-light bg-primary-personal dragME"
+    >
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto titlebar-button">
           <li class="nav-item mr-1">
             <button mat-mini-fab class="bg-primary-personal">
               <span class="material-icons"> minimize </span>
@@ -128,15 +125,17 @@
           </li>
         </ul>
       </div>
-    </nav>
-    <nav aria-label="breadcrumb">
+    </div>
+    <div aria-label="page">
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <mat-slide-toggle>Slide me!</mat-slide-toggle>
+          <mat-slide-toggle color="primary">Watch Mode</mat-slide-toggle>
         </li>
-        <li class="breadcrumb-item active" aria-current="page">Library</li>
+        <li class="breadcrumb-item">
+          <mat-slide-toggle color="primary">Office Time</mat-slide-toggle>
+        </li>
       </ol>
-    </nav>
+    </div>
     <div>
       <router-outlet></router-outlet>
     </div>
