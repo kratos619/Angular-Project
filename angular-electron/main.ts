@@ -1,11 +1,11 @@
-import { app, BrowserWindow, screen } from "electron";
+import { app, BrowserWindow, ipcMain, Menu, screen, Tray } from "electron";
 import * as path from "path";
 import * as url from "url";
 
 let win: BrowserWindow = null;
 const args = process.argv.slice(1),
   serve = args.some((val) => val === "--serve");
-
+let isQuitting = false;
 function createWindow(): BrowserWindow {
   const electronScreen = screen;
   const size = electronScreen.getPrimaryDisplay().workAreaSize;
@@ -15,7 +15,6 @@ function createWindow(): BrowserWindow {
     width: 1200,
     height: 800,
     frame: false,
-    transparent: true,
     webPreferences: {
       nodeIntegration: true,
       allowRunningInsecureContent: serve ? true : false,
@@ -50,14 +49,70 @@ function createWindow(): BrowserWindow {
 
   return win;
 }
+ipcMain.on("miniMizeApp", (e, options) => {
+  BrowserWindow.getFocusedWindow().minimize();
+});
+
+ipcMain.on("maximize", (e, options) => {
+  BrowserWindow.getFocusedWindow().maximize();
+});
+ipcMain.on("miniClose", (e, options) => {
+  BrowserWindow.getFocusedWindow().close();
+  // win.on("close", (e) => {
+  //   console.log("miniClose");
+  //   if (!isQuitting) {
+  //     e.preventDefault();
+  //     win.hide();
+  //   }
+  //   return true;
+  // });
+});
+let tray;
+var actionCenter = (currenWindowRunning) => {
+  currenWindowRunning.on("close", (e) => {
+    currenWindowRunning.hide();
+    if (!isQuitting) {
+      e.preventDefault();
+    }
+    return true;
+  });
+
+  const tryIcon = `${__dirname}/icon/tray_icon.png`;
+  tray = new Tray(tryIcon);
+  tray.on("click", () => {
+    if (currenWindowRunning.isVisible() === true) {
+      currenWindowRunning.hide();
+    } else {
+      currenWindowRunning.show();
+    }
+  });
+  tray.on("right-click", () => {
+    const contextMenu = Menu.buildFromTemplate([
+      {
+        label: "Quit",
+        click: () => {
+          isQuitting = true;
+          win = null;
+          app.quit();
+        },
+      },
+    ]);
+    tray.popUpContextMenu(contextMenu);
+  });
+};
 
 try {
   // This method will be called when Electron has finished
   // initialization and is ready to create browser windows.
   // Some APIs can only be used after this event occurs.
   // Added 400 ms to fix the black background issue while using transparent window. More detais at https://github.com/electron/electron/issues/15947
-  app.on("ready", () => setTimeout(createWindow, 400));
-
+  // app.on("ready", () => setTimeout(createWindow, 400));
+  app.on("ready", () => {
+    setTimeout(() => {
+      createWindow();
+      actionCenter(win);
+    }, 400);
+  });
   // Quit when all windows are closed.
   app.on("window-all-closed", () => {
     // On OS X it is common for applications and their menu bar

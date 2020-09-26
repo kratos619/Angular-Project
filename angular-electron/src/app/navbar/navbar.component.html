@@ -103,29 +103,33 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div
+    <nav
       class="navbar navbar-expand-lg navbar-light bg-primary-personal dragME"
     >
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto titlebar-button">
           <li class="nav-item mr-1">
-            <button mat-mini-fab class="bg-primary-personal">
+            <a (click)="miniMize()" mat-mini-fab class="bg-primary-personal">
               <span class="material-icons"> minimize </span>
-            </button>
+            </a>
           </li>
           <li class="nav-item mr-1">
-            <button mat-mini-fab class="bg-primary-personal">
+            <a (click)="maximize()" mat-mini-fab class="bg-primary-personal">
               <span class="material-icons"> fullscreen </span>
-            </button>
+            </a>
           </li>
           <li class="nav-item mr-1">
-            <button mat-mini-fab class="bg-primary-personal">
+            <button
+              (click)="miniClose()"
+              mat-mini-fab
+              class="bg-primary-personal"
+            >
               <span class="material-icons"> close </span>
             </button>
           </li>
         </ul>
       </div>
-    </div>
+    </nav>
     <div aria-label="page">
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
