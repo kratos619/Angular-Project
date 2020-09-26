@@ -11,73 +11,102 @@
     <mat-nav-list>
       <div class="fill-height-or-more">
         <div>
-          <button
+          <a
             class="bg-primary-personal"
             mat-fab
-            matTooltip="Info about the action"
-            aria-label="Example icon button with a home icon"
+            matTooltipPosition="right"
+            matTooltip="Home Screen"
+            [routerLink]="['/homeOne']"
+            routerLinkActive="active-new"
           >
             <mat-icon>home</mat-icon>
-          </button>
+          </a>
         </div>
         <div>
-          <button class="bg-primary-personal" mat-fab>
+          <a
+            class="bg-primary-personal"
+            mat-fab
+            matTooltipPosition="right"
+            matTooltip="Your Daily Assesment"
+            matTooltip="Info about the action"
+            [routerLink]="['/assignment']"
+            routerLinkActive="active-new"
+          >
             <mat-icon>assignment</mat-icon>
-          </button>
+          </a>
+        </div>
+        <div>
+          <a
+            class="bg-primary-personal"
+            mat-fab
+            matTooltipPosition="right"
+            matTooltip="Emails"
+            [routerLink]="['/mail']"
+            routerLinkActive="active-new"
+          >
+            <mat-icon>email</mat-icon>
+          </a>
         </div>
 
         <div>
-          <button mat-fab class="bg-primary-personal">
+          <a
+            mat-fab
+            class="bg-primary-personal"
+            matTooltipPosition="right"
+            matTooltip="Chat"
+            [routerLink]="['/chat']"
+            routerLinkActive="active-new"
+          >
+            <mat-icon>forum</mat-icon>
+          </a>
+        </div>
+        <div>
+          <a
+            mat-fab
+            class="bg-primary-personal"
+            matTooltipPosition="right"
+            matTooltip="media"
+            [routerLink]="['/media']"
+            routerLinkActive="active-new"
+          >
             <mat-icon>perm_media</mat-icon>
-          </button>
+          </a>
         </div>
 
         <div>
-          <button mat-fab class="bg-primary-personal">
-            <mat-icon>bug_report</mat-icon>
-          </button>
+          <a
+            mat-fab
+            class="bg-primary-personal"
+            matTooltipPosition="right"
+            matTooltip="setting"
+            [routerLink]="['/media']"
+            [routerLink]="['/setting']"
+            routerLinkActive="active-new"
+          >
+            <mat-icon>settings</mat-icon>
+          </a>
+        </div>
+
+        <div>
+          <a
+            mat-fab
+            class="bg-primary-personal"
+            matTooltipPosition="right"
+            matTooltip="profile"
+            [routerLink]="['/account']"
+            routerLinkActive="active-new"
+          >
+            <mat-icon>account_circle </mat-icon>
+          </a>
         </div>
       </div>
-      <!-- <div class="main-menu-container">
-        <button
-          mat-fab
-          color="warn"
-          aria-label="Example icon button with a home icon"
-        >
-          <mat-icon>home</mat-icon>
-        </button>
-        <button
-          mat-fab
-          color="warn"
-          aria-label="Example icon button with a home icon"
-        >
-          <mat-icon>home</mat-icon>
-        </button>
-        <button
-          mat-fab
-          color="warn"
-          aria-label="Example icon button with a home icon"
-        >
-          <mat-icon>home</mat-icon>
-        </button>
-        <button
-          mat-fab
-          color="warn"
-          aria-label="Example icon button with a home icon"
-        >
-          <mat-icon>home</mat-icon>
-        </button>
-      </div> -->
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <nav class="navbar navbar-expand-lg navbar-light bg-primary-personal">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
-          <li
-            style="-webkit-user-select: none; -webkit-app-region: drag"
-            class="nav-item mr-1"
-          >
+          <li class="nav-item mr-1">
             <button mat-mini-fab class="bg-primary-personal">
               <span class="material-icons"> drag_indicator </span>
             </button>
@@ -100,6 +129,7 @@
         </ul>
       </div>
     </nav>
+
     <div>
       <router-outlet></router-outlet>
     </div>

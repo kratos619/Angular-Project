@@ -6,12 +6,16 @@
 
 .sidenav {
   width: 180px;
-  //background: #a9e2f5 !important;
-  background: #99BAFF;
+  background: #99BAFF !important;
 }
 
 .bg-primary-personal {
   background: #99BAFF;
+}
+
+.active-new {
+  background: white;
+  color: #99BAFF;
 }
 
 .main-menu-container {
@@ -27,7 +31,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  align-content: start
+  align-content: start;
 }
 
 .fill-height-or-more:after {
