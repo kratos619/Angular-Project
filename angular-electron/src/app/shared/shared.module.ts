@@ -22,6 +22,7 @@ import { MatListModule } from "@angular/material/list";
 import { MatCardModule } from "@angular/material/card";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatTooltipModule } from "@angular/material/tooltip";
+import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 
 @NgModule({
   declarations: [PageNotFoundComponent, WebviewDirective],
@@ -45,6 +46,7 @@ import { MatTooltipModule } from "@angular/material/tooltip";
     MatPaginatorModule,
     MatSortModule,
     MatTooltipModule,
+    MatSlideToggleModule,
   ],
   exports: [
     TranslateModule,
@@ -66,6 +68,7 @@ import { MatTooltipModule } from "@angular/material/tooltip";
     MatPaginatorModule,
     MatSortModule,
     MatTooltipModule,
+    MatSlideToggleModule,
   ],
 })
 export class SharedModule {}

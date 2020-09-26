@@ -16,7 +16,7 @@
             mat-fab
             matTooltipPosition="right"
             matTooltip="Home Screen"
-            [routerLink]="['/homeOne']"
+            [routerLink]="['/home']"
             routerLinkActive="active-new"
           >
             <mat-icon>home</mat-icon>
@@ -129,7 +129,14 @@
         </ul>
       </div>
     </nav>
-
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <mat-slide-toggle>Slide me!</mat-slide-toggle>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Library</li>
+      </ol>
+    </nav>
     <div>
       <router-outlet></router-outlet>
     </div>

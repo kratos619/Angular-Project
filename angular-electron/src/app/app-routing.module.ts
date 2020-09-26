@@ -2,39 +2,45 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { PageNotFoundComponent } from "./shared/components";
 import { MenuoneComponent } from "./menuone/menuone.component";
+import { AssesmentComponent } from "./screens/assesment/assesment.component";
+import { EmailComponent } from "./screens/email/email.component";
+import { MediaComponent } from "./screens/media/media.component";
+import { SettingComponent } from "./screens/setting/setting.component";
+import { ProfileComponent } from "./screens/profile/profile.component";
+import { ChatComponent } from "./screens/chat/chat.component";
 
 const routes: Routes = [
   {
-    path: "homeOne",
+    path: "home",
     component: MenuoneComponent,
   },
   {
     path: "assignment",
-    component: MenuoneComponent,
+    component: AssesmentComponent,
   },
   {
     path: "mail",
-    component: MenuoneComponent,
+    component: EmailComponent,
   },
   {
     path: "media",
-    component: MenuoneComponent,
+    component: MediaComponent,
   },
   {
     path: "setting",
-    component: MenuoneComponent,
+    component: SettingComponent,
   },
   {
     path: "account",
-    component: MenuoneComponent,
+    component: ProfileComponent,
   },
   {
     path: "chat",
-    component: MenuoneComponent,
+    component: ChatComponent,
   },
   {
     path: "",
-    redirectTo: "homeOne",
+    redirectTo: "home",
     pathMatch: "full",
   },
   {
