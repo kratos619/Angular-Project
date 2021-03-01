@@ -1,20 +1,27 @@
 <div class="container">
   <h2>DebounceTime & DistinctUntilChanged</h2>
-  <hr>
+  <hr />
   <div class="row">
     <div class="col-md-6">
       <div class="card">
         <div class="card-body">
-            <p>DebounceTime</p>
-             <div class="form-group">
-               <input #seachInputOne placeholder="Search" type="text" class="form-control"/>
-             </div>
+          <p>DebounceTime</p>
+          <div class="form-group">
+            <input
+              #seachInputOne
+              placeholder="Search"
+              type="text"
+              class="form-control"
+            />
+          </div>
           <div *ngIf="searchQueryOneSpinner" class="text-center">
             <div class="spinner-border" role="status">
               <span class="sr-only">Loading...</span>
             </div>
           </div>
-          <p *ngIf="!searchQueryOneSpinner" class="text-info">{{searchQueryOne}}</p>
+          <p *ngIf="!searchQueryOneSpinner" class="text-info">
+            {{ searchQueryOne }}
+          </p>
         </div>
       </div>
     </div>
@@ -23,14 +30,21 @@
         <div class="card-body">
           <p>Distinct Until Changed</p>
           <div class="form-group">
-            <input #seachInputTwo placeholder="Search" type="text" class="form-control"/>
+            <input
+              #seachInput
+              placeholder="Search"
+              type="text"
+              class="form-control"
+            />
           </div>
           <div *ngIf="searchQueryTwoSpinner" class="text-center">
             <div class="spinner-border" role="status">
               <span class="sr-only">Loading...</span>
             </div>
           </div>
-          <p *ngIf="!searchQueryTwoSpinner" class="text-info">{{searchQueryTwo}}</p>
+          <p *ngIf="!searchQueryTwoSpinner" class="text-info">
+            {{ searchQueryTwo }}
+          </p>
         </div>
       </div>
     </div>
